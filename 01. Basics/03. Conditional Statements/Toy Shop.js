@@ -19,7 +19,7 @@ function toyShop(tripPrice, puzzlesCount, dollsCount, bearsCount, minionsCount, 
         console.log(`Yes! ${moneyLeft.toFixed(2)} lv left.`);
     } else {
         let moneyNeeded = trip - toysPrice;
-        console.log(`Not enough money! ${moneyNeeded.toFixed(2)} lv needed.`)
+        console.log(`Not enough money! ${moneyNeeded.toFixed(2)} lv needed.`);
     }
 }
 
