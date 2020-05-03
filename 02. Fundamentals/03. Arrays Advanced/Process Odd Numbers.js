@@ -1,11 +1,11 @@
 function processOddNumbers(arr) {
-    let newArr = []
+    let newArr = [];
     for (index in arr) {
         if (index % 2 != 0) {
             newArr.push(arr[index] * 2);
         }
     }
-    console.log(newArr.reverse().join(" "))
+    console.log(newArr.reverse().join(" "));
 }
 
 processOddNumbers([10, 15, 20, 25]);

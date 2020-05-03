@@ -8,7 +8,7 @@ function negativePositive(arr) {
         }
     }
     for (const el of newArr) {
-        console.log(el)
+        console.log(el);
     }
 }
 
