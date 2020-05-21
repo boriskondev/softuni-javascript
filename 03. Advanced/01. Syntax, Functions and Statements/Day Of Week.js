@@ -22,7 +22,7 @@ function dayOfWeek(string) {
             console.log(7);
             break;
         default:
-            console.log("error")
+            console.log("error");
     }
 
 }
