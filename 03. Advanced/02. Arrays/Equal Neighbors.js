@@ -4,10 +4,11 @@ function solve(matrix) {
     for (let row = 0; row < matrix.length - 1; row++) {
         for (let col = 0; col < matrix[row].length - 1; col++) {
             if (matrix[row][col] === matrix[row+1][col]) {
-                console.log("MATCH")
+                matches += 1;
             }
         }
     }
+    console.log(matches);
 }
 
 solve([['2', '3', '4', '7', '0'],

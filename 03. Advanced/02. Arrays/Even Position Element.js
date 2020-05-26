@@ -8,4 +8,4 @@ function solve(arr) {
     console.log(newArr.join(" "))
 }
 
-solve(['20', '31', '40'])
+solve([5, 10])

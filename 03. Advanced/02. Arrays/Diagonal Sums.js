@@ -7,8 +7,7 @@ function solve(matrix) {
         leftSum += arr[leftDiag++];
         rightSum += arr[rightDiag--];
         }
-    console.log(leftSum);
-    console.log(rightSum);
+    console.log(`${leftSum} ${rightSum}`);
 }
 
 solve([[20, 40], [10, 60]]);
