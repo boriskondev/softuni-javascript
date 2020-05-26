@@ -1,11 +1,8 @@
 function solve(arr) {
     let newArr = [];
     let step = Number(arr.pop());
-    newArr.push(arr.shift());
-    if (arr.length > step) {
-        for (i = 1; i < arr.length; i+=step) {
+    for (i = 0; i < arr.length; i+=step) {
             newArr.push(arr[i])
-        }
     }
     newArr.forEach(x => console.log(x));
 }
