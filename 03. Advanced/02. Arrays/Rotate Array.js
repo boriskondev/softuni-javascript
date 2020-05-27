@@ -1,10 +1,8 @@
 function solve(arr) {
-    let rotations = Number(arr.pop());
-    let travel;
+    let rotations = Number(arr.pop() % arr.length);
     let i = 1;
     while (i <= rotations) {
-        travel = arr.pop();
-        arr.unshift(travel);
+        arr.unshift(arr.pop());
         i++
     }
     console.log(arr.join(" "))
