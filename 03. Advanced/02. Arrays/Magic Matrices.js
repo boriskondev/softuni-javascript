@@ -9,7 +9,7 @@ function solve(matrix) {
         sumsSet.add(sum);
         sum = 0;
     }
-    console.log(sumsSet.size == 1 ? "true" : "false")
+    console.log(sumsSet.size == 1);
 }
 
 solve([[4, 5, 6], [6, 5, 4],[5, 5, 5]]);
