@@ -1,22 +1,19 @@
 function solve(arr) {
-    let pricesObj = {};
+    const catalogueObj = {};
     for (let i = 0; i < arr.length; i++) {
         let [product, price] = arr[i].split(" : ");
-        pricesObj.hasOwnProperty(product) ? "pass" : pricesObj[product] = Number(price);
+        let letter = product[0]
+        if (catalogueObj.hasOwnProperty(letter) == false) {
+            catalogueObj[letter] = {};
+        } 
+
+        catalogueObj[letter][product] = Number(price);
     }
-    let letters = new Set(Object.keys(pricesObj).map(word => word[0]));
-    let uniqueLetters = [];
-    letters.forEach(elem => !uniqueLetters.includes(elem) ? uniqueLetters.push(elem) : "pass");
-    uniqueLetters.sort((a, b) => a.localeCompare(b))
-
-    const sortObject = o => Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {})
-
-    for (letter of uniqueLetters) {
-        console.log(letter)
-        for (let [key, value] of Object.entries(sortObject(pricesObj))) {
-            if (key[0] == letter) {
-                console.log(`  ${key}: ${value}`)
-            }
+  
+    for (letter of Object.keys(catalogueObj).sort((a, b) => a.localeCompare(b))) {
+        console.log(letter);
+        for (product of Object.keys(catalogueObj[letter]).sort((a, b) => a.localeCompare(b))) {
+            console.log(`  ${product}: ${catalogueObj[letter][product]}`)
         }
     }
 }
