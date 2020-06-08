@@ -37,8 +37,12 @@ function solve() {
             } else if (buttonValue !== "=") {
                 expression.exprOper = buttonValue;
             } else {
-                let result = calculations[expression.exprOper]();
-                resultOutput.textContent = result;
+                if (expression.secondNum === "") {
+                    resultOutput.textContent = NaN;
+                } else {
+                    let result = calculations[expression.exprOper]();
+                    resultOutput.textContent = result;
+                }
             }
         } else {
             if (expression.exprOper === null) {
