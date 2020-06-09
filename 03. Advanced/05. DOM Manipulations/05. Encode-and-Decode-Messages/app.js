@@ -9,7 +9,7 @@ function encodeAndDecodeMessages() {
         for (char of text) {
                 result += String.fromCharCode(char.charCodeAt(0) + step);
             }
-            return result
+        return result
     }
 
     function onClick (e) {
