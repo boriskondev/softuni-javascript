@@ -20,10 +20,13 @@ function encodeAndDecodeMessages() {
 
         let nextTextArea = [...document.querySelectorAll("textarea")].filter(x => x.placeholder != currentTextArea.placeholder)[0]
 
-        if (buttonClicked.textContent && inputtedText) {
+        if (buttonClicked.textContent == "Encode and send it" && inputtedText) {
             let result = encodeOrDecode(operation, inputtedText);
             currentTextArea.value = "";
             nextTextArea.value = result;
+        } else if (buttonClicked.textContent == "Decode and read it" && inputtedText) {
+            let result = encodeOrDecode(operation, inputtedText);
+            currentTextArea.value = result;
         }
     }
 }
