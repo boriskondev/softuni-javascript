@@ -3,12 +3,19 @@ function solve() {
 
   let tableBody = document.querySelector("tbody");
 
+  boughtItems = {
+    itemsnames: [],
+    itemsPrices: [],
+    itemsDecfactor: []
+  }
+
   function onClick(e) {
     let target = e.target;
     if (target.tagName === "BUTTON") {
       if (target.textContent === "Generate") {
         let textAreaValue = target.previousElementSibling.value;
         if (textAreaValue) {
+          genClickedWithValue = true;
           let valueJSON = JSON.parse(textAreaValue);
           for (obj of valueJSON) {
 
@@ -47,11 +54,33 @@ function solve() {
             input.setAttribute("type", "checkbox");
             row.appendChild(td).appendChild(input);
 
-            tableBody.appendChild(row)
+            tableBody.appendChild(row);
           }
         } 
       } else if (target.textContent === "Buy") {
-        console.log("BUY button");
+        let allCheckboxes = [...document.querySelectorAll("input")];
+        let allCheckboxesChecked = allCheckboxes.filter(x => x.disabled === false && x.checked === true);
+        for (box of allCheckboxesChecked) {
+          let boxRow = box.parentNode.parentNode;
+          let outputDataParagraphs = [...boxRow.querySelectorAll("p")];
+          let outputData = outputDataParagraphs.map(x => x.textContent);
+          boughtItems.itemsnames.push(outputData[0]);
+          boughtItems.itemsPrices.push(Number(outputData[1]));
+          boughtItems.itemsDecfactor.push(Number(outputData[2]));
+        }
+        let boughtItemsNames = boughtItems.itemsnames.join(", ");
+        let boughtItemsPrice = boughtItems.itemsPrices.reduce((a,b) => a + b, 0);
+        let boughtItemsAverDecor = boughtItems.itemsDecfactor.reduce((a,b) => a + b, 0) / boughtItems.itemsnames.length;
+        
+        let textarea = document.querySelectorAll("textarea")[1];
+
+        let result = ""
+
+        result += `Bought furniture: ${boughtItemsNames}\n`;
+        result += `Total price: ${boughtItemsPrice.toFixed(2)}\n`;
+        result += `Average decoration factor: ${boughtItemsAverDecor}`;
+
+        textarea.innerText = result;
       }
     }
   }
