@@ -59,17 +59,21 @@ class Company {
             currentSalary = 0;
             employeesCount = 0;
         }
-        let result = ""
-        result += `Best Department is: ${bestDepartment}`;
-        result += `\nAverage salary: ${bestAverageSalary.toFixed(2)}`;
+        let result = []
+        result.push(`Best Department is: ${bestDepartment}`);
+        result.push(`Average salary: ${bestAverageSalary.toFixed(2)}`);
         let sortedDepartment = this.departments[bestDepartment].sort((a, b) => b.salary - a.salary || a.username.localeCompare(b.username));
-        sortedDepartment.forEach(x => result += `\n${x.username} ${x.salary} ${x.position}`);
-        console.log(result)
+        sortedDepartment.forEach(x => result.push(`${x.username} ${x.salary} ${x.position}`));
+        return result.join("\n")
     }
 }
 
 let c = new Company();
-
+c.addEmployee("Stanimir", 2000, "engineer", "Construction");
 c.addEmployee("Pesho", 1500, "electrical engineer", "Construction");
-
-c.bestDepartment();
+c.addEmployee("Slavi", 500, "dyer", "Construction");
+c.addEmployee("Stan", 2000, "architect", "Construction");
+c.addEmployee("Stanimir", 1200, "digital marketing manager", "Marketing");
+c.addEmployee("Pesho", 1000, "graphical designer", "Marketing");
+c.addEmployee("Gosho", 1350, "HR", "Human resources");
+console.log(c.bestDepartment());
