@@ -2,7 +2,7 @@
 
 class Company {
     constructor() {
-        this.departments = {};
+        this.departments = [];
     }
 
     _validate(data) {
@@ -27,7 +27,7 @@ class Company {
                 salary: salary,
                 position: position
             })
-            console.log(`New employee is hired. Name: ${username}. Position: ${position}`)
+            return `New employee is hired. Name: ${username}. Position: ${position}`
 
         } else {
             this.departments[department] = [];
@@ -36,7 +36,7 @@ class Company {
                 salary: salary,
                 position: position
             })
-            console.log(`New employee is hired. Name: ${username}. Position: ${position}`)
+            return `New employee is hired. Name: ${username}. Position: ${position}`
         }
     }
 
@@ -56,23 +56,20 @@ class Company {
                 bestAverageSalary = currentAverageSalary;
                 bestDepartment = currentDepartment;
             }
+            currentSalary = 0;
+            employeesCount = 0;
         }
         let result = ""
-        result += `Best department is: ${bestDepartment}\n`;
-        result += `Average salary: ${bestAverageSalary.toFixed(2)}\n`;
+        result += `Best Department is: ${bestDepartment}`;
+        result += `\nAverage salary: ${bestAverageSalary.toFixed(2)}`;
         let sortedDepartment = this.departments[bestDepartment].sort((a, b) => b.salary - a.salary || a.username.localeCompare(b.username));
-        sortedDepartment.forEach(x => result += `${x.username} ${x.salary} ${x.position}\n`);
-        return result
+        sortedDepartment.forEach(x => result += `\n${x.username} ${x.salary} ${x.position}`);
+        console.log(result)
     }
 }
 
 let c = new Company();
-c.addEmployee("Stanimir", 2000, "engineer", "Construction");
-c.addEmployee("Pesho", 1500, "electrical engineer", "Construction");
-c.addEmployee("Slavi", 500, "dyer", "Construction");
-c.addEmployee("Stan", 2000, "architect", "Construction");
-c.addEmployee("Stanimir", 1200, "digital marketing manager", "Marketing");
-c.addEmployee("Pesho", 1000, "graphical designer", "Marketing");
-c.addEmployee("Gosho", 1350, "HR", "Human resources");
-console.log(c.bestDepartment());
 
+c.addEmployee("Pesho", 1500, "electrical engineer", "Construction");
+
+c.bestDepartment();
