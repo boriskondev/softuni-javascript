@@ -1,5 +1,3 @@
-// Works fine, but 50/100 in Judge.
-
 class Company {
     constructor() {
         this.departments = [];
