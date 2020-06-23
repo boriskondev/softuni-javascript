@@ -5,7 +5,11 @@ class Bank {
     }
 
     newCustomer(customerObj) {
-        let customerFound = this.allCustomers.filter(customer => customer.personalId === customerObj.personalId);
+        let customerFound = this.allCustomers.filter(customer =>
+            customer.firstName === customerObj.firstName &&
+            customer.lastName === customerObj.lastName &&
+            customer.personalId === customerObj.personalId
+        );
         if (customerFound.length === 0) {
             customerObj["transactions"] = []
             this.allCustomers.push(customerObj);
