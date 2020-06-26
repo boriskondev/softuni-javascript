@@ -15,3 +15,14 @@
 
 // Когато има формуляр, цъкането на бутона изпраща заявка към сървъра,
 // затова ползваме preventDefault.
+
+// function makeElement(elementType, elementText, elementClass) {
+//     let element = document.createElement(elementType);
+//     if (elementText !== null) {
+//         element.textContent = elementText;
+//     }
+//     if (elementClass !== null) {
+//         element.setAttribute('class', elementClass);
+//     }
+//     return element;
+// }
