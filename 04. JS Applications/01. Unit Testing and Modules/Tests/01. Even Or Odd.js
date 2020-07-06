@@ -1,5 +1,5 @@
 let expect = require('chai').expect;
-let isOddOrEven = require('../01. Even or Odd tests').isOddOrEven;
+let isOddOrEven = require('../01. Even or Odd').isOddOrEven;
 
 describe('testing isOddOrEven function', function () {
     // Bad cases:
