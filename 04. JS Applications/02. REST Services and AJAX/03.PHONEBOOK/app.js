@@ -43,6 +43,7 @@ function attachEvents() {
                 liButton.textContent = "Delete";
                 liButton.addEventListener("click", () => {
                     listItem.remove();
+                    // DELETE REQUEST https://github.com/github/fetch/issues/154
                 })
                 listItem.appendChild(liButton);
                 phonebook.appendChild(listItem);
