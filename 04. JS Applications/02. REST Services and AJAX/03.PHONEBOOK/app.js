@@ -7,9 +7,11 @@ function attachEvents() {
 
     const phonebook = document.querySelector("#phonebook");
 
+    let baseUrl = "https://phonebook-nakov.firebaseio.com/phonebook"
+
     createButton.addEventListener("click", () => {
         if (personId.value !== "" && personPhone.value !== "") {
-            fetch(baseUrl, {
+            fetch(baseUrl + ".json", {
                 method: "POST",
                 body: JSON.stringify({person: personId.value, phone: personPhone.value})
             })
@@ -18,13 +20,13 @@ function attachEvents() {
         }
     });
 
-    let baseUrl = "https://phonebook-nakov.firebaseio.com/phonebook.json"
-
     loadButton.addEventListener("click", () => {
-        fetch(baseUrl)
+        fetch(baseUrl + ".json")
             .then((response) => (response.json()))
             .then((result) => (createLiElement(result)));
     });
+
+    let liButton = document.createElement("button");
 
     function createLiElement(result) {
         phonebook.innerHTML = "";
@@ -36,14 +38,18 @@ function attachEvents() {
             phonebook.appendChild(listItem);
         } else {
             for (let key of Object.keys(result)) {
+                let id = key;
                 let listItem = document.createElement("li");
                 listItem.setAttribute("id", "phonebook");
                 listItem.textContent = `${result[key].person}: ${result[key].phone}`
-                let liButton = document.createElement("button");
                 liButton.textContent = "Delete";
                 liButton.addEventListener("click", () => {
+                    fetch(baseUrl + "/" + id + ".json", {
+                        method: "DELETE"
+                    })
+                        .then((response) => (response.json())
+                        .then((result) => (console.log(result))));
                     listItem.remove();
-                    // DELETE REQUEST https://github.com/github/fetch/issues/154
                 })
                 listItem.appendChild(liButton);
                 phonebook.appendChild(listItem);
