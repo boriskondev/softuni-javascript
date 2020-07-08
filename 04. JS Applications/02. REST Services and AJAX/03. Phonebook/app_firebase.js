@@ -17,6 +17,7 @@ function attachEvents() {
             })
             personId.value = "";
             personPhone.value = "";
+            window.confirm("Contact created!");
         }
     });
 
