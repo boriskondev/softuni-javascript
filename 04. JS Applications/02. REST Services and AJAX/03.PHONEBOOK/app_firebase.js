@@ -26,29 +26,26 @@ function attachEvents() {
             .then((result) => (createLiElement(result)));
     });
 
-    let liButton = document.createElement("button");
-
     function createLiElement(result) {
         phonebook.innerHTML = "";
         if (result === null) {
             let listItem = document.createElement("li");
             listItem.setAttribute("id", "phonebook");
             listItem.textContent = "No result/s found!";
-            listItem.appendChild(liButton);
             phonebook.appendChild(listItem);
         } else {
             for (let key of Object.keys(result)) {
                 let id = key;
                 let listItem = document.createElement("li");
+                let liButton = document.createElement("button");
                 listItem.setAttribute("id", "phonebook");
                 listItem.textContent = `${result[key].person}: ${result[key].phone}`
                 liButton.textContent = "Delete";
-                liButton.addEventListener("click", () => {
+                liButton.addEventListener("click", (e) => {
+                    e.preventDefault()
                     fetch(baseUrl + "/" + id + ".json", {
                         method: "DELETE"
                     })
-                        .then((response) => (response.json())
-                        .then((result) => (console.log(result))));
                     listItem.remove();
                 })
                 listItem.appendChild(liButton);
