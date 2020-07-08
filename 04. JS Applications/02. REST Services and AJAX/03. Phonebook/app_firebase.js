@@ -31,7 +31,6 @@ function attachEvents() {
         phonebook.innerHTML = "";
         if (result === null) {
             let listItem = document.createElement("li");
-            listItem.setAttribute("id", "phonebook");
             listItem.textContent = "No result/s found!";
             phonebook.appendChild(listItem);
         } else {
@@ -39,7 +38,6 @@ function attachEvents() {
                 let id = key;
                 let listItem = document.createElement("li");
                 let liButton = document.createElement("button");
-                listItem.setAttribute("id", "phonebook");
                 listItem.textContent = `${result[key].person}: ${result[key].phone}`
                 liButton.textContent = "Delete";
                 liButton.addEventListener("click", (e) => {
