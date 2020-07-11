@@ -6,7 +6,7 @@ export default function el(type, content, attributes) {
     }
 
     if (Array.isArray(content)) {
-        content.forEach(content);
+        content.forEach(append);
     } else {
         append(content);
     }

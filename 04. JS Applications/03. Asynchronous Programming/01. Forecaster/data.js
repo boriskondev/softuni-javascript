@@ -1,15 +1,15 @@
-export async function getCode() {
+export async function getCodeAsync() {
     return "ny"
 }
 
-export async function getToday() {
+export async function getTodayAsync() {
     return {
         "forecast": { "condition": "Sunny", "high": "19", "low": "8" },
         "name": "New York, USA"
     }
 }
 
-export async function getUpcoming() {
+export async function getUpcomingAsync() {
     return {
         "forecast": [
             { "condition": "Partly sunny", "high": "17", "low": "6" },
