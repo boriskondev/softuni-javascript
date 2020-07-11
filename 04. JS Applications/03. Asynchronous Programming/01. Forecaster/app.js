@@ -13,7 +13,6 @@ const symbols = {
 }
 
 window.addEventListener("load", () => {
-    console.log(1)
     const input = document.querySelector("#location");
     const mainDiv = document.querySelector("#forecast");
     const todayDiv = document.querySelector("#current");
@@ -24,7 +23,7 @@ window.addEventListener("load", () => {
     async function getForecast() {
         mainDiv.style.display = "";
 
-        const locationName = input.value;
+        const locationName = input.value.toLowerCase();
         const code = await data.getCodeAsync(locationName);
 
         const todayRes = data.getTodayAsync(code);

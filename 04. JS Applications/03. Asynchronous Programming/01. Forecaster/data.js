@@ -1,21 +1,30 @@
-export async function getCodeAsync() {
-    return "ny"
+// 01:55:41
+
+function host(endpoint) {
+    return `https://judgetests.firebaseio.com/${endpoint}.json`;
 }
 
-export async function getTodayAsync() {
-    return {
-        "forecast": { "condition": "Sunny", "high": "19", "low": "8" },
-        "name": "New York, USA"
-    }
+const api = {
+    locations: "locations",
+    today: "forecast/today",
+    upcoming: "forecast/upcoming",
+};
+
+export async function getCodeAsync(name) {
+    //const response1 = fetch(host(api.locations));
+    // Returns Promise;
+    //const response2 = await (fetch(host(api.locations)));
+    // Returns Response;
+
+    const data = await (await fetch(host(api.locations))).json();
+
+    return data.find(x => x.name.toLowerCase() === name.toLowerCase()).code;
+}
+
+export async function getTodayAsync(code) {
+    return await (await fetch(host(api.today + code))).json();
 }
 
 export async function getUpcomingAsync() {
-    return {
-        "forecast": [
-            { "condition": "Partly sunny", "high": "17", "low": "6" },
-            { "condition": "Overcast", "high": "9", "low": "3" },
-            { "condition": "Overcast", "high": "7", "low": "3" }
-        ],
-        "name": "New York"
-    }
+    return await (await fetch(host(api.upcoming + code))).json();
 }
