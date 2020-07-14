@@ -35,11 +35,9 @@ window.addEventListener("load", () => {
             for (let key of Object.keys(allCatchesData)) {
                 let obj = allCatchesData[key];
 
-                let divId = key;
-
                 let currentDiv = document.createElement("div");
                 currentDiv.setAttribute("class", "catch");
-                currentDiv.setAttribute("data-id", `<${key}>`);
+                currentDiv.setAttribute("data-id", key);
 
                 let updateButton = document.createElement("button");
                 updateButton.setAttribute("class", "update");
@@ -60,7 +58,8 @@ window.addEventListener("load", () => {
                 updateButton.addEventListener("click", updateCatchDiv);
 
                 async function updateCatchDiv(e) {
-                    let divToUpdate = e.target.parentNode.parentNode;
+                    let divToUpdate = e.target.parentNode;
+                    let idToUpdate = divToUpdate.attributes[1].value;
 
                     let anglerToUpdate = divToUpdate.querySelector("input.angler");
                     let weightToUpdate = divToUpdate.querySelector("input.weight");
@@ -78,27 +77,22 @@ window.addEventListener("load", () => {
                         "captureTime": captureTimeToUpdate.value,
                     };
 
-                    const itemToUpdate = await data.updateCatch(divId, objToUpdate)
-                    //console.log("In app.js:");
-                    //console.log(itemToUpdate);
+                    const itemToUpdate = await data.updateCatch(idToUpdate, objToUpdate)
                 }
 
                 deleteButton.addEventListener("click", deleteCatchDiv);
 
-                async function deleteCatchDiv() {
-                    const itemToDelete = await data.deleteCatch(divId)
-                    //console.log(itemToDelete)
-                    currentDiv.remove()
-                    //console.log("In app.js:");
-                    //console.log(currentDiv);
+                async function deleteCatchDiv(e) {
+                    let divToDelete = e.target.parentNode;
+                    let idToDelete = divToDelete.attributes[1].value;
+                    const itemToDelete = await data.deleteCatch(idToDelete)
+                    divToDelete.remove()
                 }
             }
         }
     }
 
     async function addCatch() {
-        console.log("Add button")
-
         if (addAngler.value !== "" && addWeight.value !== "" &&
             addSpecies.value !== "" && addLocation.value !== "" &&
             addBait.value !== "" && addCaptureTime.value !== "") {
@@ -120,9 +114,6 @@ window.addEventListener("load", () => {
             addLocation.value = "";
             addBait.value = "";
             addCaptureTime.value = "";
-
-            console.log("In app.js:");
-            console.log(itemToAdd);
         }
     }
 })
