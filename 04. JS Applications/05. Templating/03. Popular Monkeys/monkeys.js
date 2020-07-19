@@ -1,4 +1,6 @@
-const monkeys = [
+let monkeys;
+
+export default monkeys = [
   {
     id: 1,
     name: "Chim Chim",
