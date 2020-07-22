@@ -1,7 +1,13 @@
 import home from "../scripts/controllers/home.js";
 import about from "../scripts/controllers/about.js";
-import login from "../scripts/controllers/login.js";
-import register from "../scripts/controllers/register.js";
+import login, { loginPost } from "../scripts/controllers/login.js";
+import register,  { registerPost } from "../scripts/controllers/register.js";
+import catalog from "../scripts/controllers/catalog.js";
+import details from "../scripts/controllers/details.js";
+import create from "../scripts/controllers/create.js";
+import edit from "../scripts/controllers/edit.js";
+
+// 01:53:00
 
 $(() => {
     const app = Sammy("#main", function () {
@@ -22,9 +28,23 @@ $(() => {
 
         // LOGIN
         this.get("#/login", login);
+        this.post("#/login", (context) => { loginPost.call(context) });
+
+        // CATALOG
+        this.get("#/catalog", catalog);
+
+        // CATALOG DETAILS
+        this.get("#/catalog/:id", details);
 
         // REGISTER
         this.get("#/register", register);
+        this.post("#/register", (context) => { registerPost.call(context) });
+
+        // CREATE
+        this.get("#/create", create);
+
+        // EDIT
+        this.get("#/edit/:id", edit);
 
         // Къде държим контролерите?
         // Как съхраняваме потребителската сесия?

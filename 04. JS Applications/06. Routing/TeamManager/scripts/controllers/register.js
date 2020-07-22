@@ -7,3 +7,10 @@ export default async function () {
 
     this.partial("./templates/register/registerPage.hbs");
 };
+
+export async function registerPost() {
+    this.app.userData.loggedIn = true;
+    this.app.userData.username = this.params.username;
+
+    this.redirect("#/home")
+}
