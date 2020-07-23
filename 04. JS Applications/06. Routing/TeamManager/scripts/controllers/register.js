@@ -1,16 +1,29 @@
+import {register} from "../data.js";
+
 export default async function () {
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
         footer: await this.load("./templates/common/footer.hbs"),
         registerForm: await this.load("./templates/register/registerForm.hbs")
     };
-
     this.partial("./templates/register/registerPage.hbs");
 };
 
 export async function registerPost() {
-    this.app.userData.loggedIn = true;
-    this.app.userData.username = this.params.username;
+    if (this.params.password !== this.params.repeatPassword) {
+        alert("Passwords did not match!");
+        return;
+    }
 
-    this.redirect("#/home")
+    try {
+        const result = await register(this.params.username, this.params.password);
+        if (result.hasOwnProperty("errorData")) {
+            const error = new Error();
+            Object.assign(error, result);
+            throw error;
+        }
+        this.redirect("#/login");
+    } catch (err) {
+        alert(err.message)
+    }
 }
