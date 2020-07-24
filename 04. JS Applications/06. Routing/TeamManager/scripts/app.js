@@ -7,6 +7,8 @@ import details from "../scripts/controllers/details.js";
 import create from "../scripts/controllers/create.js";
 import edit from "../scripts/controllers/edit.js";
 
+// 02:12:00
+
 $(() => {
     const app = Sammy("#main", function () {
         this.use("Handlebars", "hbs");

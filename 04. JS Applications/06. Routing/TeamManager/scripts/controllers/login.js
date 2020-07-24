@@ -1,3 +1,5 @@
+import {login} from "../data.js";
+
 export default async function () {
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
@@ -9,8 +11,22 @@ export default async function () {
 };
 
 export async function loginPost() {
-    this.app.userData.loggedIn = true;
-    this.app.userData.username = this.params.username;
+    try {
+        const result = await login(this.params.username, this.params.password);
 
-    this.redirect("#/home")
+        if (result.hasOwnProperty("errorData")) {
+            const error = new Error();
+            Object.assign(error, result);
+            throw error;
+        }
+
+        this.app.userData.loggedIn = true;
+        this.app.userData.username = result.username;
+        localStorage.setItem("userToken", result["user-token"]);
+        localStorage.setItem("userName", result.username);
+
+        this.redirect("#/home");
+    } catch (err) {
+        alert(err.message)
+    }
 }
