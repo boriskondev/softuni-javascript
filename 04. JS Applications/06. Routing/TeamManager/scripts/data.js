@@ -6,7 +6,8 @@ function host(endpoint) {
 
 const endpoints = {
     REGISTER: "users/register",
-    LOGIN: "users/login"
+    LOGIN: "users/login",
+    LOGOUT: "users/logout"
 }
 
 export async function register(username, password) {
@@ -33,4 +34,18 @@ export async function login(username, password) {
             password
         })
     })).json();
+}
+
+export async function logout() {
+    const token = localStorage.getItem("userToken");
+    if (!token) {
+        throw new Error("user is not logged in!")
+    }
+
+    return fetch(host(endpoints.LOGOUT), {
+        method: "GET",
+        headers: {
+            "user-token": token
+        }
+    });
 }

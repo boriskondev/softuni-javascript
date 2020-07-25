@@ -1,4 +1,4 @@
-import {login} from "../data.js";
+import {login, logout as logoutGet} from "../data.js";
 
 export default async function () {
     this.partials = {
@@ -29,4 +29,16 @@ export async function loginPost() {
     } catch (err) {
         alert(err.message)
     }
+}
+
+export async function logout() {
+    await logoutGet();
+
+    this.app.userData.loggedIn = false;
+    this.app.userData.username = undefined;
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("username");
+    localStorage.removeItem("userId");
+
+    this.redirect("#/home");
 }
