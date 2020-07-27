@@ -5,7 +5,7 @@ function host(endpoint) {
 }
 
 const endpoints = {
-    REGISTER: "users/register",
+    REGISTER: "users/user",
     LOGIN: "users/login",
     LOGOUT: "users/logout"
 }

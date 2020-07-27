@@ -4,9 +4,9 @@ export default async function () {
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
         footer: await this.load("./templates/common/footer.hbs"),
-        registerForm: await this.load("./templates/register/registerForm.hbs")
+        registerForm: await this.load("./templates/user/registerForm.hbs")
     };
-    this.partial("./templates/register/registerPage.hbs");
+    this.partial("./templates/user/registerPage.hbs");
 };
 
 export async function registerPost() {

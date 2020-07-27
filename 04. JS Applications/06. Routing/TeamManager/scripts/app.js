@@ -20,11 +20,11 @@ $(() => {
         this.get("/", home);
         this.get("#/about", about);
 
-        this.get("#/register", register);
+        this.get("#/user", register);
         this.get("#/login", login);
         this.get("#/logout", logout);
 
-        this.post("#/register", (context) => { registerPost.call(context) });
+        this.post("#/user", (context) => { registerPost.call(context) });
         this.post("#/login", (context) => { loginPost.call(context) });
 
         this.get("#/catalog", catalog);

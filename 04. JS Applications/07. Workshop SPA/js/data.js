@@ -1,7 +1,5 @@
 // localStorage.setItem("userToken", "A2C2A642-9C1C-4D36-A6B0-1C43CA71ABF2")
 
-alert("It works!")
-
 function host(endpoint) {
     const appId = "6F95DCA6-BD2A-08A2-FFD0-D420775B3800";
     const restApiKey = "68D97447-D153-42DF-BE47-A75B8E6C42D6";
@@ -9,7 +7,7 @@ function host(endpoint) {
 }
 
 const endpoints = {
-    REGISTER: "users/register",
+    REGISTER: "users/user",
     LOGIN: "users/login",
     LOGOUT: "users/logout",
     MOVIES: "data/movies",
