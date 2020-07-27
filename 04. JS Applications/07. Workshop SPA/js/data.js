@@ -7,7 +7,7 @@ function host(endpoint) {
 }
 
 const endpoints = {
-    REGISTER: "users/user",
+    REGISTER: "users/register",
     LOGIN: "users/login",
     LOGOUT: "users/logout",
     MOVIES: "data/movies",
@@ -15,7 +15,7 @@ const endpoints = {
 }
 
 // Register new user
-async function register(username, password) {
+export async function register(username, password) {
     const result = await (await fetch(host(endpoints.REGISTER), {
         method: "POST",
         headers: {
@@ -35,7 +35,7 @@ async function register(username, password) {
 }
 
 // Login registered user
-async function login(username, password) {
+export async function login(username, password) {
     return (await fetch(host(endpoints.LOGIN), {
         method: "POST",
         headers: {
@@ -49,8 +49,10 @@ async function login(username, password) {
 }
 
 // Logout registered user
-async function logout() {
+export async function logout() {
     const token = localStorage.getItem("userToken");
+
+    localStorage.removeItem("userToken");
 
     return (await fetch(host(endpoints.LOGOUT), {
         method: "GET",
@@ -61,7 +63,7 @@ async function logout() {
 }
 
 // Get all movies
-async function getMovies() {
+export async function getMovies() {
     const token = localStorage.getItem("userToken");
 
     return (await fetch(host(endpoints.MOVIES), {
@@ -72,7 +74,7 @@ async function getMovies() {
 }
 
 // Get movie by ID
-async function getMovieById(id) {
+export async function getMovieById(id) {
     const token = localStorage.getItem("userToken");
 
     return (await fetch(host(endpoints.MOVIE_BY_ID + id), {
@@ -83,7 +85,7 @@ async function getMovieById(id) {
 }
 
 // Create movie
-async function createMovie(movie) {
+export async function createMovie(movie) {
     const token = localStorage.getItem("userToken");
 
     return (await (fetch(host(endpoints.MOVIES), {
@@ -97,7 +99,7 @@ async function createMovie(movie) {
 }
 
 // Update movie
-async function updateMovie(id, updatedProperties) {
+export async function updateMovie(id, updatedProperties) {
     const token = localStorage.getItem("userToken");
 
     return (await (fetch(host(endpoints.MOVIE_BY_ID + id), {
@@ -111,7 +113,7 @@ async function updateMovie(id, updatedProperties) {
 }
 
 // Delete movie
-async function deleteMovie(id) {
+export async function deleteMovie(id) {
     const token = localStorage.getItem("userToken");
 
     return (await (fetch(host(endpoints.MOVIE_BY_ID + id), {
@@ -124,7 +126,7 @@ async function deleteMovie(id) {
 }
 
 // Get movie by user ID
-async function getMovieByOwner(ownerId) {
+export async function getMovieByOwner(ownerId) {
     const token = localStorage.getItem("userToken");
 
     return (await (fetch(host(endpoints.MOVIES + `?where=ownerId%3D%27${ownerId}%27`), {
@@ -137,7 +139,7 @@ async function getMovieByOwner(ownerId) {
 }
 
 // Buy ticket
-async function buyTicket(id) {
+export async function buyTicket(id) {
     const movie = await getMovieById(id);
 
     if (movie.tickets > 0) {
@@ -146,7 +148,7 @@ async function buyTicket(id) {
     }
 }
 
-// async function buyTicket(movie) {
+// export async function buyTicket(movie) {
 //     const newTicket = movie.tickets - 1;
 //     const movieId = movie.objectId;
 //
