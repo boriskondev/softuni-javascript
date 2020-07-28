@@ -1,4 +1,5 @@
 import { register as apiRegister } from "../data.js"
+import {showError, showInfo} from "../notifications.js";
 
 export default async function register() {
     this.partials = {
@@ -11,29 +12,25 @@ export default async function register() {
 }
 
 export async function registerPost() {
-    if (this.params.username === "" ||
-        this.params.password === "" ||
-        this.params.repeatPassword === "") {
-        alert("Information in one or more fields is missing!");
-        return;
-    }
-
-    if (this.params.username.length < 3) {
-        alert("Username must be at least 3 characters long!");
-        return;
-    }
-
-    if (this.params.password.length < 6) {
-        alert("Password must be at least 6 characters long!");
-        return;
-    }
-
-    if (this.params.password !== this.params.repeatPassword) {
-        alert("Passwords do not match!");
-        return;
-    }
-
     try {
+        if (this.params.username === "" ||
+            this.params.password === "" ||
+            this.params.repeatPassword === "") {
+            throw new Error("Information in one or more fields is missing!");
+        }
+
+        if (this.params.username.length < 3) {
+            throw new Error("Username must be at least 3 characters long!");
+        }
+
+        if (this.params.password.length < 6) {
+            throw new Error("Password must be at least 6 characters long!");
+        }
+
+        if (this.params.password !== this.params.repeatPassword) {
+            throw new Error("Passwords do not match!");
+        }
+
         const result = await apiRegister(this.params.username, this.params.password);
         if (result.hasOwnProperty("errorData")) {
             let error = new Error();
@@ -44,10 +41,11 @@ export async function registerPost() {
         this.app.userData.username = result.username;
         this.app.userData.userId = result.objectId;
 
-    } catch (err) {
-        alert(err.message);
-        return;
-    }
+        showInfo("Successfully registered!");
 
-    this.redirect('#/login');
+        this.redirect('#/login');
+
+    } catch (err) {
+        showError(err.message);
+    }
 }

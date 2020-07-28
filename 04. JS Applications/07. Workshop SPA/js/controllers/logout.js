@@ -1,4 +1,5 @@
 import {logout as apiLogout} from "../data.js";
+import {showInfo, showError} from "../notifications.js"
 
 export default async function logout() {
     try {
@@ -12,10 +13,11 @@ export default async function logout() {
         this.app.userData.username = "";
         this.app.userData.userId = "";
 
-    } catch (err) {
-        alert(err.message);
-        return;
-    }
+        showInfo("Successfully logged out!");
 
-    this.redirect('#/home');
+        this.redirect('#/home');
+
+    } catch (err) {
+        showError(err.message);
+    }
 }

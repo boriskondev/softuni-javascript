@@ -1,4 +1,5 @@
 // localStorage.setItem("userToken", "A2C2A642-9C1C-4D36-A6B0-1C43CA71ABF2")
+import {showLoading, hideLoading} from "./notifications.js"
 
 function host(endpoint) {
     const appId = "6F95DCA6-BD2A-08A2-FFD0-D420775B3800";
@@ -36,7 +37,9 @@ export async function register(username, password) {
 
 // Login registered user
 export async function login(username, password) {
-    return (await fetch(host(endpoints.LOGIN), {
+    showLoading();
+
+    const result = (await fetch(host(endpoints.LOGIN), {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -46,49 +49,70 @@ export async function login(username, password) {
             password
         })
     })).json();
+
+    hideLoading();
+
+    return result;
 }
 
 // Logout registered user
 export async function logout() {
+    showLoading();
+
     const token = localStorage.getItem("userToken");
 
     localStorage.removeItem("userToken");
 
-    return (await fetch(host(endpoints.LOGOUT), {
+    const result = (await fetch(host(endpoints.LOGOUT), {
         method: "GET",
         headers: {
             "user-token": token
         }
     }));
+
+    hideLoading();
+
+    return result;
 }
 
 // Get all movies
 export async function getMovies() {
+    showLoading();
     const token = localStorage.getItem("userToken");
 
-    return (await fetch(host(endpoints.MOVIES), {
+    const result = (await fetch(host(endpoints.MOVIES), {
         headers: {
             "user-token": token
         }
     })).json();
+
+    hideLoading();
+
+    return result;
 }
 
 // Get movie by ID
 export async function getMovieById(id) {
+    showLoading();
     const token = localStorage.getItem("userToken");
 
-    return (await fetch(host(endpoints.MOVIE_BY_ID + id), {
+    const result = (await fetch(host(endpoints.MOVIE_BY_ID + id), {
         headers: {
             "user-token": token
         }
     })).json();
+
+    hideLoading();
+
+    return result;
 }
 
 // Create movie
 export async function createMovie(movie) {
+    showLoading();
     const token = localStorage.getItem("userToken");
 
-    return (await (fetch(host(endpoints.MOVIES), {
+    const result = (await (fetch(host(endpoints.MOVIES), {
         method: "POST",
         headers: {
             "content-type": "application/json",
@@ -96,13 +120,18 @@ export async function createMovie(movie) {
         },
         body: JSON.stringify(movie)
     }))).json();
+
+    hideLoading();
+
+    return result;
 }
 
 // Update movie
 export async function updateMovie(id, updatedProperties) {
+    showLoading();
     const token = localStorage.getItem("userToken");
 
-    return (await (fetch(host(endpoints.MOVIE_BY_ID + id), {
+    const result = (await (fetch(host(endpoints.MOVIE_BY_ID + id), {
         method: "PUT",
         headers: {
             "content-type": "application/json",
@@ -110,32 +139,46 @@ export async function updateMovie(id, updatedProperties) {
         },
         body: JSON.stringify(updatedProperties)
     }))).json();
+
+    hideLoading();
+
+    return result;
 }
 
 // Delete movie
 export async function deleteMovie(id) {
+    showLoading();
     const token = localStorage.getItem("userToken");
 
-    return (await (fetch(host(endpoints.MOVIE_BY_ID + id), {
+    const result = (await (fetch(host(endpoints.MOVIE_BY_ID + id), {
         method: "DELETE",
         headers: {
             "content-type": "application/json",
             "user-token": token
         }
     }))).json();
+
+    hideLoading();
+
+    return result;
 }
 
 // Get movie by user ID
 export async function getMovieByOwner(ownerId) {
+    showLoading();
     const token = localStorage.getItem("userToken");
 
-    return (await (fetch(host(endpoints.MOVIES + `?where=ownerId%3D%27${ownerId}%27`), {
+    const result = (await (fetch(host(endpoints.MOVIES + `?where=ownerId%3D%27${ownerId}%27`), {
         headers: {
             "content-type": "application/json",
             "user-token": token
         }
     }
     ))).json();
+
+    hideLoading();
+
+    return result;
 }
 
 // Buy ticket

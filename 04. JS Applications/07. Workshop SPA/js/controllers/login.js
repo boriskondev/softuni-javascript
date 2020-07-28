@@ -1,4 +1,5 @@
 import { login as apiLogin } from "../data.js"
+import {showError, showInfo} from "../notifications.js";
 
 export default async function login() {
     this.partials = {
@@ -22,10 +23,11 @@ export async function loginPost() {
         this.app.userData.username = result.username;
         this.app.userData.userId = result.objectId;
 
-    } catch (err) {
-        alert(err.message);
-        return;
-    }
+        showInfo("Successfully logged in!");
 
-    this.redirect('#/home');
+        this.redirect('#/home');
+
+    } catch (err) {
+        showError(err.message);
+    }
 }
