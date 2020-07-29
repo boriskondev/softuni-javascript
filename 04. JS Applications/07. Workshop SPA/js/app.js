@@ -1,7 +1,4 @@
-alert("It works!");
-
-// 55:26
-
+import {showInfo, hideLoading} from "./notifications.js"
 import home from "./controllers/home.js"
 import register, { registerPost } from "./controllers/register.js"
 import login, { loginPost } from "./controllers/login.js"
@@ -16,6 +13,8 @@ window.addEventListener("load", () => {
             username: localStorage.getItem("username") || "",
             userId: localStorage.getItem("userId") ||""
         }
+
+        showInfo("It works!")
 
         this.get("/", home);
         this.get("index.html", home);

@@ -1,4 +1,3 @@
-// localStorage.setItem("userToken", "A2C2A642-9C1C-4D36-A6B0-1C43CA71ABF2")
 import {showLoading, hideLoading} from "./notifications.js"
 
 function host(endpoint) {
