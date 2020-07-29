@@ -13,8 +13,8 @@ window.addEventListener("load", () => {
         this.use("Handlebars", "hbs");
 
         this.userData = {
-            username: "",
-            userId: ""
+            username: localStorage.getItem("username") || "",
+            userId: localStorage.getItem("userId") ||""
         }
 
         this.get("/", home);
