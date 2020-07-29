@@ -188,18 +188,9 @@ export async function getMovieByOwner(ownerId) {
 }
 
 // Buy ticket
-export async function buyTicket(id) {
-    const movie = await getMovieById(id);
+export async function buyTicket(movie) {
+    const newTickets = movie.tickets - 1;
+    const movieId = movie.objectId;
 
-    if (movie.tickets > 0) {
-        const newTickets = movie.tickets -= 1;
-        return updateMovie(id, {tickets: newTickets})
-    }
+    return updateMovie(movieId, {tickets: newTickets})
 }
-
-// export async function buyTicket(movie) {
-//     const newTicket = movie.tickets - 1;
-//     const movieId = movie.objectId;
-//
-//     return updateMovie(movieId, {tickets: newTickets})
-// }

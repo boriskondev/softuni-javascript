@@ -3,7 +3,7 @@ import home from "./controllers/home.js"
 import register, { registerPost } from "./controllers/register.js"
 import login, { loginPost } from "./controllers/login.js"
 import logout from "./controllers/logout.js"
-import catalog, { details, create, createPost, edit } from "./controllers/movies.js"
+import catalog, { details, create, createPost, edit, buyTicket } from "./controllers/movies.js"
 
 window.addEventListener("load", () => {
     const app = Sammy("#container", function () {
@@ -11,7 +11,8 @@ window.addEventListener("load", () => {
 
         this.userData = {
             username: localStorage.getItem("username") || "",
-            userId: localStorage.getItem("userId") ||""
+            userId: localStorage.getItem("userId") ||"",
+            movies: []
         }
 
         showInfo("It works!")
@@ -35,6 +36,8 @@ window.addEventListener("load", () => {
         this.post("#/create", context => { createPost.call(context); });
 
         this.get("#/edit/:id", edit);
+
+        this.post("#/buy/:id", context => { buyTicket.call(context); });
     })
     
     app.run();
