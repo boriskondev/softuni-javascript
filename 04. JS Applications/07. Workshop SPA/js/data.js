@@ -17,6 +17,7 @@ const endpoints = {
 
 // Register new user
 export async function register(username, password) {
+    showLoading();
     const result = await (await fetch(host(endpoints.REGISTER), {
         method: "POST",
         headers: {
@@ -28,9 +29,7 @@ export async function register(username, password) {
         })
     })).json();
 
-    localStorage.setItem("userToken", result["user-token"]);
-    localStorage.setItem("username", result.username);
-    localStorage.setItem("userId", result.objectId);
+    hideLoading();
 
     return result;
 }
@@ -39,7 +38,7 @@ export async function register(username, password) {
 export async function login(username, password) {
     showLoading();
 
-    const result = (await fetch(host(endpoints.LOGIN), {
+    const result = await (await fetch(host(endpoints.LOGIN), {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -49,6 +48,10 @@ export async function login(username, password) {
             password
         })
     })).json();
+
+    localStorage.setItem("userToken", result["user-token"]);
+    localStorage.setItem("username", result.username);
+    localStorage.setItem("userId", result.objectId);
 
     hideLoading();
 
@@ -69,6 +72,10 @@ export async function logout() {
             "user-token": token
         }
     }));
+
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("username");
+    localStorage.removeItem("userId");
 
     hideLoading();
 

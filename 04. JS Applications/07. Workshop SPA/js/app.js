@@ -6,7 +6,7 @@ import home from "./controllers/home.js"
 import register, { registerPost } from "./controllers/register.js"
 import login, { loginPost } from "./controllers/login.js"
 import logout from "./controllers/logout.js"
-import catalog, { details, create, edit } from "./controllers/movies.js"
+import catalog, { details, create, createPost, edit } from "./controllers/movies.js"
 
 window.addEventListener("load", () => {
     const app = Sammy("#container", function () {
@@ -31,7 +31,10 @@ window.addEventListener("load", () => {
 
         this.get("#/catalog", catalog);
         this.get("#/details/:id", details);
+
         this.get("#/create", create);
+        this.post("#/create", context => { createPost.call(context); });
+
         this.get("#/edit/:id", edit);
     })
     
