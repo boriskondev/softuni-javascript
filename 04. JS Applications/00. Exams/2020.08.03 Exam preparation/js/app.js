@@ -1,8 +1,9 @@
 alert("!!!")
 
-import home from "./controllers/home.js";
+
+import { home } from "./controllers/home.js";
 import { profile, register, login, logout, registerPost, loginPost } from "./controllers/user.js";
-import { create } from "./controllers/event.js";
+import { create, createPost } from "./controllers/event.js";
 
 window.addEventListener("load", () => {
     const app = Sammy("body", function () {
@@ -11,6 +12,7 @@ window.addEventListener("load", () => {
         this.userData = {
             username: localStorage.getItem("username") || "",
             userId: localStorage.getItem("userId") || "",
+            events: []
         };
 
         this.get("/", home);
@@ -28,6 +30,7 @@ window.addEventListener("load", () => {
         this.get("#/profile", profile);
 
         this.get("#/create", create);
+        this.post("#/create", context => { createPost.call(context); });
 
         //
         // this.get('#/catalog', catalog);

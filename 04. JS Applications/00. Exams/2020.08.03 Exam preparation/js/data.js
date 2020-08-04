@@ -1,5 +1,5 @@
 // import { beginRequest, endRequest } from './notification.js';
-//
+
 function host(endpoint) {
     return `https://api.backendless.com/D4197671-F8EB-2581-FF17-3244736FD100/981D4390-9981-4062-BA1B-D147383261C9/${endpoint}`;
 }
@@ -8,6 +8,7 @@ const endpoints = {
     REGISTER: "users/register",
     LOGIN: "users/login",
     LOGOUT: "users/logout",
+    EVENTS: "data/events"
 };
 
 export async function register(username, password) {
@@ -72,33 +73,62 @@ export async function logout() {
     return result;
 }
 
+// get all events
 
-// // get all movies
-// export async function getMovies(search) {
-//     beginRequest();
-//
-//     const token = localStorage.getItem('userToken');
-//
-//     let result;
-//
-//     if (!search) {
-//         result = (await fetch(host(endpoints.MOVIES), {
-//             headers: {
-//                 'user-token': token
-//             }
-//         })).json();
-//     } else {
-//         result = (await fetch(host(endpoints.MOVIES + `?where=${escape(`genres LIKE '%${search}%'`)}`), {
-//             headers: {
-//                 'user-token': token
-//             }
-//         })).json();
-//     }
-//
-//     endRequest();
-//
-//     return result;
+export async function getEvents() {
+    // beginRequest();
+
+    const token = localStorage.getItem("userToken");
+
+    const result = (await fetch(host(endpoints.EVENTS), {
+        method: "GET",
+        headers: {
+            "user-token": token
+        }
+    })).json();
+
+    // endRequest();
+
+    return result;
+}
+
+
+// {
+//     "image": "https://bit.ly/2BYkjuR",
+//     "created": 1596574620000,
+//     "name": "A to Jazz",
+//     "___class": "events",
+//     "description": "Fucking nice!",
+//     "ownerId": "16E6B8F9-9624-473A-8179-640A88390796",
+//     "updated": null,
+//     "objectId": "0A485798-9C93-4373-94B5-E841126B2433",
+//     "eventDate": "July"
 // }
+
+// create event
+export async function createEvent(event) {
+    // beginRequest();
+
+    const token = localStorage.getItem("userToken");
+
+    const result = (await fetch(host(endpoints.EVENTS), {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "user-token": token
+        },
+        body: JSON.stringify(event)
+    })).json();
+
+    // endRequest();
+
+    return result;
+}
+
+
+
+
+
 //
 // // get movie by ID
 // export async function getMovieById(id) {
@@ -117,25 +147,7 @@ export async function logout() {
 //     return result;
 // }
 //
-// // create movie
-// export async function createMovie(movie) {
-//     beginRequest();
-//
-//     const token = localStorage.getItem('userToken');
-//
-//     const result = (await fetch(host(endpoints.MOVIES), {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'user-token': token
-//         },
-//         body: JSON.stringify(movie)
-//     })).json();
-//
-//     endRequest();
-//
-//     return result;
-// }
+
 //
 // // edit movie
 // export async function updateMovie(id, updatedProps) {
