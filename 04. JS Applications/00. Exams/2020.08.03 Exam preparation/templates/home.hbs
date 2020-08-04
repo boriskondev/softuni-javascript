@@ -1,8 +1,8 @@
 {{>header}}
 
 {{#if username}}
+<div id="eventsHolder">
 {{#each events}}
-    <div id="eventsHolder">
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden eventPlaceholder">
             <div class="my-3 p-3">
                 <h2 class="display-5">{{name}}</h2>
@@ -14,8 +14,8 @@
                 <a href="#/details/{{objectId}}" class="eventDetails">More</a>
             </div>
         </div>
-    </div>
 {{else}}
+ </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">

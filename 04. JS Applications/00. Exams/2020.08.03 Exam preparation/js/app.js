@@ -32,6 +32,8 @@ window.addEventListener("load", () => {
         this.get("#/create", create);
         this.post("#/create", context => { createPost.call(context); });
 
+        this.get("#/details/:id", details);
+
         //
         // this.get('#/catalog', catalog);
         // this.get('#/my_movies', myMovies);
