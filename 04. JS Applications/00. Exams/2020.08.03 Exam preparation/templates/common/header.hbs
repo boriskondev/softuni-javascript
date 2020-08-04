@@ -11,15 +11,12 @@
                 </path>
             </svg>
         </a>
-        <a class="py-2 d-none d-md-inline-block" href="#/create">Organize Event</a>
-        <a class="py-2 d-none d-md-inline-block" href="#/profile">USERNAME</a>
-        <a class="py-2 d-none d-md-inline-block" href="#/logout">Logout</a>
-        <a class="py-2 d-none d-md-inline-block" href="#/login">Login</a>
+        {{#if username}}
+            <a class="py-2 d-none d-md-inline-block" href="#/create">Organize Event</a>
+            <a class="py-2 d-none d-md-inline-block" href="#/profile">{{username}}</a>
+            <a class="py-2 d-none d-md-inline-block" href="#/logout">Logout</a>
+        {{else}}
+            <a class="py-2 d-none d-md-inline-block" href="#/login">Login</a>
+        {{/if}}
     </div>
 </nav>
-
-<div id="notifications">
-    <div id="successBox" class="alert alert-success" role="alert">{Success Message...}</div>
-    <div id="loadingBox" class="alert alert-info" role="alert">Loading...</div>
-    <div id="errorBox" class="alert alert-danger" role="alert">{Error Message...}</div>
-</div>
