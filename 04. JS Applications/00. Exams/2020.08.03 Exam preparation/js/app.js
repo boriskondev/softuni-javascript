@@ -3,7 +3,7 @@ alert("!!!")
 
 import { home } from "./controllers/home.js";
 import { profile, register, login, logout, registerPost, loginPost } from "./controllers/user.js";
-import { create, createPost, details } from "./controllers/event.js";
+import { create, createPost, details, edit } from "./controllers/event.js";
 
 window.addEventListener("load", () => {
     const app = Sammy("body", function () {
@@ -34,6 +34,10 @@ window.addEventListener("load", () => {
 
         this.get("#/details/:id", details);
 
+        this.get("#/edit/:id", edit);
+
+        // this.post('#/edit/:id', ctx => { editPost.call(ctx); });
+
 
         // this.get('#/catalog', catalog);
         // this.get('#/my_movies', myMovies);
@@ -42,13 +46,12 @@ window.addEventListener("load", () => {
         //
         // this.get('#/create', create);
         //
-        // this.get('#/edit/:id', edit);
-        //
+
 
 
         //
         // this.post('#/create', ctx => { createPost.call(ctx); });
-        // this.post('#/edit/:id', ctx => { editPost.call(ctx); });
+
         // this.get('#/buy/:id', buyTicket);
         // this.get('#/delete/:id', deleteMovie);
     });
