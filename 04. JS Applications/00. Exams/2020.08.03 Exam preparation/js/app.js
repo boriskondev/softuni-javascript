@@ -3,7 +3,7 @@ alert("!!!")
 
 import { home } from "./controllers/home.js";
 import { profile, register, login, logout, registerPost, loginPost } from "./controllers/user.js";
-import { create, createPost, details, edit } from "./controllers/event.js";
+import { create, createPost, details, edit, editPost, deleteEvent, joinEvent } from "./controllers/event.js";
 
 window.addEventListener("load", () => {
     const app = Sammy("body", function () {
@@ -11,8 +11,7 @@ window.addEventListener("load", () => {
 
         this.userData = {
             username: localStorage.getItem("username") || "",
-            userId: localStorage.getItem("userId") || "",
-            events: []
+            userId: localStorage.getItem("userId") || ""
         };
 
         this.get("/", home);
@@ -35,9 +34,11 @@ window.addEventListener("load", () => {
         this.get("#/details/:id", details);
 
         this.get("#/edit/:id", edit);
+        this.post("#/edit/:id", context => { editPost.call(context); });
 
-        // this.post('#/edit/:id', ctx => { editPost.call(ctx); });
+        this.get("#/delete/:id", deleteEvent);
 
+        this.get("#/join/:id", joinEvent);
 
         // this.get('#/catalog', catalog);
         // this.get('#/my_movies', myMovies);
@@ -46,14 +47,10 @@ window.addEventListener("load", () => {
         //
         // this.get('#/create', create);
         //
-
-
-
-        //
         // this.post('#/create', ctx => { createPost.call(ctx); });
 
         // this.get('#/buy/:id', buyTicket);
-        // this.get('#/delete/:id', deleteMovie);
+
     });
 
     app.run();

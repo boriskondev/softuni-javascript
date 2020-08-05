@@ -144,70 +144,70 @@ export async function getEventById(id) {
     return result;
 }
 
+// Update event
+export async function updateEvent(id, updatedProps) {
+    // beginRequest();
 
-//
-// // edit movie
-// export async function updateMovie(id, updatedProps) {
-//     beginRequest();
-//
-//     const token = localStorage.getItem('userToken');
-//
-//     const result = (await fetch(host(endpoints.MOVIE_BY_ID + id), {
-//         method: 'PUT',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'user-token': token
-//         },
-//         body: JSON.stringify(updatedProps)
-//     })).json();
-//
-//     endRequest();
-//
-//     return result;
-// }
-//
-// // delete movie
-// export async function deleteMovie(id) {
-//     beginRequest();
-//
-//     const token = localStorage.getItem('userToken');
-//
-//     const result = (await fetch(host(endpoints.MOVIE_BY_ID + id), {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'user-token': token
-//         }
-//     })).json();
-//
-//     endRequest();
-//
-//     return result;
-// }
-//
-// // get movies by user ID
-// export async function getMovieByOwner() {
-//     beginRequest();
-//
-//     const token = localStorage.getItem('userToken');
-//     const ownerId = localStorage.getItem('userId');
-//
-//     const result = (await fetch(host(endpoints.MOVIES + `?where=ownerId%3D%27${ownerId}%27`), {
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'user-token': token
-//         }
-//     })).json();
-//
-//     endRequest();
-//
-//     return result;
-// }
-//
-// // buy ticket
-// export async function buyTicket(movie) {
-//     const newTickets = movie.tickets - 1;
-//     const movieId = movie.objectId;
-//
-//     return updateMovie(movieId, { tickets: newTickets });
-// }
+    const token = localStorage.getItem("userToken");
+
+    const result = (await fetch(host(endpoints.EVENTS + "/" + id), {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "user-token": token
+        },
+        body: JSON.stringify(updatedProps)
+    })).json();
+
+    // endRequest();
+
+    return result;
+}
+
+// Delete event
+export async function deleteEvent(id) {
+    // beginRequest();
+
+    const token = localStorage.getItem("userToken");
+
+    const result = (await fetch(host(endpoints.EVENTS + "/" + id), {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "user-token": token
+        }
+    })).json();
+
+    // endRequest();
+
+    return result;
+}
+
+// Join event
+export async function joinEvent(event) {
+    const eventId = event.objectId;
+    event.interestedIn++;
+
+    const result = await updateEvent(eventId, { interestedIn: event.interestedIn })
+    console.log(result)
+    return result;
+}
+
+// Get events by user ID
+export async function getEventsByCreator() {
+    // beginRequest();
+
+    const token = localStorage.getItem("userToken");
+    const ownerId = localStorage.getItem("userId");
+
+    const result = (await fetch(host(endpoints.EVENTS + `?where=ownerId%3D%27${ownerId}%27`), {
+        headers: {
+            "Content-Type": "application/json",
+            "user-token": token
+        }
+    })).json();
+
+    // endRequest();
+
+    return result;
+}

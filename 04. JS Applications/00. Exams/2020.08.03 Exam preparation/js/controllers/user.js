@@ -1,4 +1,4 @@
-import { register as apiRegister } from "../data.js";
+import { register as apiRegister, getEventsByCreator } from "../data.js";
 import { login as apiLogin } from "../data.js";
 import { logout as apiLogout } from "../data.js";
 
@@ -28,7 +28,17 @@ export async function profile() {
         footer: await this.load("./templates/common/footer.hbs")
     };
 
-    this.partial("./templates/user/profile.hbs", this.app.userData);
+    const events = await getEventsByCreator();
+
+    const context = Object.assign(this.app.userData, { events });
+
+    console.log(context)
+
+    this.partial("./templates/user/profile.hbs", context);
+
+
+
+
 }
 
 export async function registerPost() {
