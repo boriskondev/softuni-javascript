@@ -3,7 +3,7 @@ alert("!!!")
 
 import { home } from "./controllers/home.js";
 import { profile, register, login, logout, registerPost, loginPost } from "./controllers/user.js";
-import { create, createPost } from "./controllers/event.js";
+import { create, createPost, details } from "./controllers/event.js";
 
 window.addEventListener("load", () => {
     const app = Sammy("body", function () {
@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
 
         this.get("#/details/:id", details);
 
-        //
+
         // this.get('#/catalog', catalog);
         // this.get('#/my_movies', myMovies);
         //
