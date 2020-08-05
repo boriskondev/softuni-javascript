@@ -8,7 +8,6 @@ export async function home() {
 
     const events = await getEvents();
     this.app.userData.events = events;
-    console.log(events)
 
     this.partial("./templates/home.hbs", this.app.userData);
 }

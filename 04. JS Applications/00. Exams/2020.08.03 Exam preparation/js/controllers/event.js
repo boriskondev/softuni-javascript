@@ -1,4 +1,5 @@
 import { createEvent as apiCreateEvent } from "../data.js";
+import { getEventById } from "../data.js";
 
 export async function create() {
     this.partials = {
@@ -6,7 +7,7 @@ export async function create() {
         footer: await this.load("./templates/common/footer.hbs")
     };
 
-    this.partial("./templates/event/create.hbs");
+    this.partial("./templates/event/create.hbs", this.app.userData);
 }
 
 export async function createPost() {
@@ -49,4 +50,23 @@ export async function createPost() {
         alert(err.message);
         // showError(err.message);
     }
+}
+
+export async function details() {
+    this.partials = {
+        header: await this.load("./templates/common/header.hbs"),
+        footer: await this.load("./templates/common/footer.hbs")
+    };
+
+    const eventId = this.params.id;
+
+    let event = this.app.userData.events.find(event => event.objectId === eventId);
+
+    if (event === undefined) {
+        event = await getEventById(eventId);
+    }
+
+    const context = Object.assign({ event }, this.app.userData);
+
+    this.partial("./templates/event/details.hbs", context);
 }

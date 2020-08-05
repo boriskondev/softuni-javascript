@@ -92,17 +92,18 @@ export async function getEvents() {
     return result;
 }
 
-
 // {
-//     "image": "https://bit.ly/2BYkjuR",
-//     "created": 1596574620000,
-//     "name": "A to Jazz",
-//     "___class": "events",
-//     "description": "Fucking nice!",
-//     "ownerId": "16E6B8F9-9624-473A-8179-640A88390796",
-//     "updated": null,
-//     "objectId": "0A485798-9C93-4373-94B5-E841126B2433",
-//     "eventDate": "July"
+//     created: 1596579884000
+//     description: "Cant wait!"
+//     eventDate: "12 August 2020"
+//     image: "https://townsquare.media/site/366/files/2018/10/metallica_by_Ross_Halfin.jpg"
+//     interestedIn: 0
+//     name: "Metallica in Sofia!"
+//     objectId: "3FFAC9D1-BAE2-4BAB-A7DD-B56B7F60DABD"
+//     organizedBy: "BorisKondev"
+//     ownerId: "16E6B8F9-9624-473A-8179-640A88390796"
+//     updated: null
+//     ___class: "events"
 // }
 
 // create event
@@ -125,28 +126,24 @@ export async function createEvent(event) {
     return result;
 }
 
+// get event by ID
+export async function getEventById(id) {
+    // beginRequest();
 
+    const token = localStorage.getItem("userToken");
 
+    const result = (await fetch(host(endpoints.EVENTS + "/" + id), {
+        method: "GET",
+        headers: {
+            "user-token": token
+        }
+    })).json();
 
+    // endRequest();
 
-//
-// // get movie by ID
-// export async function getMovieById(id) {
-//     beginRequest();
-//
-//     const token = localStorage.getItem('userToken');
-//
-//     const result = (await fetch(host(endpoints.MOVIE_BY_ID + id), {
-//         headers: {
-//             'user-token': token
-//         }
-//     })).json();
-//
-//     endRequest();
-//
-//     return result;
-// }
-//
+    return result;
+}
+
 
 //
 // // edit movie
