@@ -8,6 +8,10 @@ export async function home() {
 
     const events = await getEvents();
 
+    events.sort((a, b) => {
+        return b.interestedIn - a.interestedIn
+    })
+
     const context = Object.assign(this.app.userData, { events });
 
     this.partial("./templates/home.hbs", context);

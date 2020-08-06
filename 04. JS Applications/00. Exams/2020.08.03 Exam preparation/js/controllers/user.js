@@ -32,13 +32,7 @@ export async function profile() {
 
     const context = Object.assign(this.app.userData, { events });
 
-    console.log(context)
-
     this.partial("./templates/user/profile.hbs", context);
-
-
-
-
 }
 
 export async function registerPost() {
