@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0877b606-8fe2-46dc-b561-24975e52c080" name="Default Changelist" comment="05.08.2020">
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/controllers/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/controllers/event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/controllers/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/controllers/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/js/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/templates/event/details.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/templates/event/details.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/templates/user/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/templates/user/profile.hbs" afterDir="false" />
+    <list default="true" id="0877b606-8fe2-46dc-b561-24975e52c080" name="Default Changelist" comment="06.08.2020">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/UniEnt_Description.docx" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/UniEnt_Description.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,56 +157,12 @@
       <workItem from="1596307440622" duration="669000" />
       <workItem from="1596531535448" duration="17506000" />
       <workItem from="1596558654314" duration="18106000" />
-      <workItem from="1596625017799" duration="3643000" />
-    </task>
-    <task id="LOCAL-00025" summary="05.07.2020">
-      <created>1593940643778</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1593940643778</updated>
-    </task>
-    <task id="LOCAL-00026" summary="05.07.2020">
-      <created>1593940713575</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1593940713575</updated>
-    </task>
-    <task id="LOCAL-00027" summary="05.07.2020">
-      <created>1593980239018</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1593980239018</updated>
-    </task>
-    <task id="LOCAL-00028" summary="06.07.2020">
-      <created>1594026005212</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1594026005213</updated>
-    </task>
-    <task id="LOCAL-00029" summary="06.07.2020">
-      <created>1594026140764</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1594026140764</updated>
-    </task>
-    <task id="LOCAL-00030" summary="05.07.2020">
-      <created>1594148095776</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1594148095776</updated>
-    </task>
-    <task id="LOCAL-00031" summary="07.07.2020">
-      <created>1594151864215</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1594151864215</updated>
+      <workItem from="1596625017799" duration="7831000" />
+      <workItem from="1596653183674" duration="11398000" />
+      <workItem from="1596710836518" duration="174000" />
+      <workItem from="1596717276354" duration="11349000" />
+      <workItem from="1596728652258" duration="692000" />
+      <workItem from="1596738260880" duration="2343000" />
     </task>
     <task id="LOCAL-00032" summary="08.07.2020">
       <created>1594158273946</created>
@@ -507,14 +458,62 @@
       <option name="project" value="LOCAL" />
       <updated>1596580879540</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="05.08.2020">
+      <created>1596628699734</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1596628699734</updated>
+    </task>
+    <task id="LOCAL-00075" summary="05.08.2020">
+      <created>1596629501540</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1596629501540</updated>
+    </task>
+    <task id="LOCAL-00076" summary="05.08.2020">
+      <created>1596635351709</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1596635351709</updated>
+    </task>
+    <task id="LOCAL-00077" summary="06.08.2020">
+      <created>1596663351925</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1596663351925</updated>
+    </task>
+    <task id="LOCAL-00078" summary="06.08.2020">
+      <created>1596718527652</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1596718527653</updated>
+    </task>
+    <task id="LOCAL-00079" summary="06.08.2020">
+      <created>1596728603462</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1596728603462</updated>
+    </task>
+    <task id="LOCAL-00080" summary="06.08.2020">
+      <created>1596740157692</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1596740157692</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="26.06.2020" />
     <MESSAGE value="27.06.2020" />
     <MESSAGE value="30.06.2020" />
     <MESSAGE value="02.07.2020" />
@@ -539,7 +538,8 @@
     <MESSAGE value="29.07.2020" />
     <MESSAGE value="04.08.2020" />
     <MESSAGE value="05.08.2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="05.08.2020" />
+    <MESSAGE value="06.08.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="06.08.2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="421" y="28" key="#04._JS_Applications\01._Unit_Testing_and_Modules\Homeworks\03\tests\01._Even_Or_Odd-tests.js" timestamp="1594226448382">
@@ -570,10 +570,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1595852873406" />
-    <state x="162" y="0" key="CommitChangelistDialog2" timestamp="1596580901490">
+    <state x="162" y="0" key="CommitChangelistDialog2" timestamp="1596740156405">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="162" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1596580901490" />
+    <state x="162" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1596740156405" />
     <state x="143" y="50" key="DiffContextDialog" timestamp="1595751250658">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -650,10 +650,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="118" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1595853203803" />
-    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2" timestamp="1596580907206">
+    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2" timestamp="1596728607992">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1596580907206" />
+    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1596728607992" />
     <state x="269" y="74" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1595751363593">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
