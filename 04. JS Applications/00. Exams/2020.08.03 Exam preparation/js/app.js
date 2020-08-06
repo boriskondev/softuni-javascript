@@ -1,12 +1,11 @@
-alert("!!!")
-
+alert("The app works!")
 
 import { home } from "./controllers/home.js";
 import { profile, register, login, logout, registerPost, loginPost } from "./controllers/user.js";
 import { create, createPost, details, edit, editPost, deleteEvent, joinEvent } from "./controllers/event.js";
 
 window.addEventListener("load", () => {
-    const app = Sammy("body", function () {
+    const app = Sammy("#container", function () {
         this.use("Handlebars", "hbs");
 
         this.userData = {
@@ -39,17 +38,6 @@ window.addEventListener("load", () => {
         this.get("#/delete/:id", deleteEvent);
 
         this.get("#/join/:id", joinEvent);
-
-        // this.get('#/catalog', catalog);
-        // this.get('#/my_movies', myMovies);
-        //
-        // this.get('#/details/:id', details);
-        //
-        // this.get('#/create', create);
-        //
-        // this.post('#/create', ctx => { createPost.call(ctx); });
-
-        // this.get('#/buy/:id', buyTicket);
 
     });
 

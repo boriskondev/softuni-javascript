@@ -1,3 +1,4 @@
+import { showSuccess, showError } from "../notifications.js";
 import { createEvent as apiCreateEvent } from "../data.js";
 import { getEventById, updateEvent, deleteEvent as apiDelete, joinEvent as apiJoin } from "../data.js";
 
@@ -21,7 +22,7 @@ export async function createPost() {
         }
 
         if (!this.params.imageURL.startsWith("http://") && !this.params.imageURL.startsWith("https://")) {
-            throw new Error("Image URL should start with 'http://' or 'https://'.");
+            throw new Error("Image URL should start with \"http://\" or \"https://\".");
         }
 
         const event = {
@@ -41,14 +42,12 @@ export async function createPost() {
             throw error;
         }
 
-        // showInfo('Successfully registered');
-        alert("Event created successfully.");
+        showSuccess("Event created successfully.");
 
         this.redirect("#/home");
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -85,15 +84,6 @@ export async function edit() {
 
 }
 
-// PARAMS
-// dateTime: "12 August 2020"
-// description: "Cant wait!"
-// id: "3FFAC9D1-BAE2-4BAB-A7DD-B56B7F60DABD"
-// imageURL: "https://townsquare.media/site/366/files/2018/10/metallica_by_Ross_Halfin.jpg"
-// name: "Metallica in Sofia!"
-// organizer: "BorisKondev"
-// peopleInterestedIn: "0"
-
 export async function editPost() {
 
     const eventId = this.params.id;
@@ -108,7 +98,7 @@ export async function editPost() {
         }
 
         if (!this.params.imageURL.startsWith("http://") && !this.params.imageURL.startsWith("https://")) {
-            throw new Error("Image URL should start with 'http://' or 'https://'.");
+            throw new Error("Image URL should start with \"http://\" or \"https://\".");
         }
 
         const event = {
@@ -126,14 +116,12 @@ export async function editPost() {
             throw error;
         }
 
-        alert("Event edited successfully.");
-        // showInfo("Event edited successfully.");
+        showSuccess("Event edited successfully.");
 
         this.redirect("#/home");
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -153,13 +141,12 @@ export async function deleteEvent() {
             throw error;
         }
 
-        alert("Event closed successfully.");
-        // showInfo("Move deleted");
+        showSuccess("Event closed successfully.");
 
         this.redirect("#/home");
+
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -178,12 +165,11 @@ export async function joinEvent() {
             throw error;
         }
 
-        alert("You join the event successfully.");
-        // showInfo("You join the event successfully.");
+        showSuccess("You join the event successfully.");
 
         this.redirect(`#/details/${eventId}`);
+
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }

@@ -1,8 +1,7 @@
+import { showSuccess, showError } from "../notifications.js";
 import { register as apiRegister, getEventsByCreator } from "../data.js";
 import { login as apiLogin } from "../data.js";
 import { logout as apiLogout } from "../data.js";
-
-// import { showInfo, showError } from '../notification.js';
 
 export async function register() {
     this.partials = {
@@ -57,18 +56,15 @@ export async function registerPost() {
             throw error;
         }
 
-        // showInfo('Successfully registered');
-        alert("User registration successful.");
+        showSuccess("User registration successful.");
 
         localStorage.setItem("username", result.username);
         localStorage.setItem("userId", result.objectId);
 
         this.redirect("#/home");
-        // Navbar should be different for registered users!
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -84,20 +80,19 @@ export async function loginPost() {
         this.app.userData.username = result.username;
         this.app.userData.userId = result.objectId;
 
-        alert("Login successful.");
-        // showInfo(`Logged in as ${result.username}`);
+        showSuccess("Login successful.");
 
-        this.redirect("#/home");
+        this.redirect("#/home")
+
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
 export async function logout() {
     try {
         const result = await apiLogout();
-        if (result.hasOwnProperty('errorData')) {
+        if (result.hasOwnProperty("errorData")) {
             const error = new Error();
             Object.assign(error, result);
             throw error;
@@ -106,12 +101,11 @@ export async function logout() {
         this.app.userData.username = "";
         this.app.userData.userId = "";
 
-        alert("Logout successful.");
-        // showInfo('Successfully logged out');
+        showSuccess("Logout successful.");
 
         this.redirect("#/home");
+
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }

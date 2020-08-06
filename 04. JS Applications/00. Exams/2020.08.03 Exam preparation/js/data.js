@@ -1,4 +1,4 @@
-// import { beginRequest, endRequest } from './notification.js';
+import { beginRequest, endRequest } from "./notifications.js";
 
 function host(endpoint) {
     return `https://api.backendless.com/D4197671-F8EB-2581-FF17-3244736FD100/981D4390-9981-4062-BA1B-D147383261C9/${endpoint}`;
@@ -12,7 +12,7 @@ const endpoints = {
 };
 
 export async function register(username, password) {
-    // beginRequest();
+    beginRequest();
 
     const result = (await fetch(host(endpoints.REGISTER), {
         method: "POST",
@@ -25,13 +25,13 @@ export async function register(username, password) {
         })
     })).json();
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
 
 export async function login(username, password) {
-    // beginRequest();
+    beginRequest();
 
     const result = await (await fetch(host(endpoints.LOGIN), {
         method: "POST",
@@ -48,13 +48,13 @@ export async function login(username, password) {
     localStorage.setItem("username", result.username);
     localStorage.setItem("userId", result.objectId);
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
 
 export async function logout() {
-    // beginRequest();
+    beginRequest();
 
     const token = localStorage.getItem("userToken");
 
@@ -68,7 +68,7 @@ export async function logout() {
         }
     });
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
@@ -76,7 +76,7 @@ export async function logout() {
 // get all events
 
 export async function getEvents() {
-    // beginRequest();
+    beginRequest();
 
     const token = localStorage.getItem("userToken");
 
@@ -87,28 +87,14 @@ export async function getEvents() {
         }
     })).json();
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
 
-// {
-//     created: 1596579884000
-//     description: "Cant wait!"
-//     eventDate: "12 August 2020"
-//     image: "https://townsquare.media/site/366/files/2018/10/metallica_by_Ross_Halfin.jpg"
-//     interestedIn: 0
-//     name: "Metallica in Sofia!"
-//     objectId: "3FFAC9D1-BAE2-4BAB-A7DD-B56B7F60DABD"
-//     organizedBy: "BorisKondev"
-//     ownerId: "16E6B8F9-9624-473A-8179-640A88390796"
-//     updated: null
-//     ___class: "events"
-// }
-
 // create event
 export async function createEvent(event) {
-    // beginRequest();
+    beginRequest();
 
     const token = localStorage.getItem("userToken");
 
@@ -121,14 +107,14 @@ export async function createEvent(event) {
         body: JSON.stringify(event)
     })).json();
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
 
 // get event by ID
 export async function getEventById(id) {
-    // beginRequest();
+    beginRequest();
 
     const token = localStorage.getItem("userToken");
 
@@ -139,14 +125,14 @@ export async function getEventById(id) {
         }
     })).json();
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
 
 // Update event
 export async function updateEvent(id, updatedProps) {
-    // beginRequest();
+    beginRequest();
 
     const token = localStorage.getItem("userToken");
 
@@ -159,14 +145,14 @@ export async function updateEvent(id, updatedProps) {
         body: JSON.stringify(updatedProps)
     })).json();
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
 
 // Delete event
 export async function deleteEvent(id) {
-    // beginRequest();
+    beginRequest();
 
     const token = localStorage.getItem("userToken");
 
@@ -178,7 +164,7 @@ export async function deleteEvent(id) {
         }
     })).json();
 
-    // endRequest();
+    endRequest();
 
     return result;
 }
@@ -195,7 +181,7 @@ export async function joinEvent(event) {
 
 // Get events by user ID
 export async function getEventsByCreator() {
-    // beginRequest();
+    beginRequest();
 
     const token = localStorage.getItem("userToken");
     const ownerId = localStorage.getItem("userId");
@@ -207,7 +193,7 @@ export async function getEventsByCreator() {
         }
     })).json();
 
-    // endRequest();
+    endRequest();
 
     return result;
 }

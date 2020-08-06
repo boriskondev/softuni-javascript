@@ -6,14 +6,20 @@ export async function home() {
         footer: await this.load("./templates/common/footer.hbs")
     };
 
-    const events = await getEvents();
+    const token = localStorage.getItem("userToken");
 
-    events.sort((a, b) => {
-        return b.interestedIn - a.interestedIn
-    })
+    if (token) {
+        const events = await getEvents();
 
-    const context = Object.assign(this.app.userData, { events });
+        events.sort((a, b) => {
+            return b.interestedIn - a.interestedIn
+        })
 
-    this.partial("./templates/home.hbs", context);
+        const context = Object.assign(this.app.userData, { events });
+
+        this.partial("./templates/home.hbs", context);
+    } else {
+        this.partial("./templates/home.hbs");
+    }
 }
 
