@@ -1,7 +1,8 @@
 import { showSuccess, showError } from "../notifications.js";
-import { createEvent as apiCreateEvent } from "../data.js";
-import { getEventById, updateEvent, deleteEvent as apiDelete, joinEvent as apiJoin } from "../data.js";
+import { createNew } from "../data.js";
+import { getById, updateIt, deleteIt, joinEvent as apiJoin } from "../data.js";
 
+// ------------------------- CREATE -------------------------
 export async function create() {
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
@@ -11,6 +12,7 @@ export async function create() {
     this.partial("./templates/event/create.hbs", this.app.userData);
 }
 
+// ------------------------- CREATE POST -------------------------
 export async function createPost() {
     try {
         if (this.params.name.length < 6) {
@@ -34,7 +36,7 @@ export async function createPost() {
             interestedIn: 0
         }
 
-        const result = await apiCreateEvent(event);
+        const result = await createNew(event);
 
         if (result.hasOwnProperty("errorData")) {
             const error = new Error();
@@ -51,6 +53,7 @@ export async function createPost() {
     }
 }
 
+// ------------------------- DETAILS TEMPLATE -------------------------
 export async function details() {
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
@@ -59,7 +62,7 @@ export async function details() {
 
     const eventId = this.params.id;
 
-    let event = await getEventById(eventId);
+    let event = await getById(eventId);
 
     const isOrganizer = event.organizedBy === this.app.userData.username;
 
@@ -68,6 +71,7 @@ export async function details() {
     this.partial("./templates/event/details.hbs", context);
 }
 
+// ------------------------- EDIT -------------------------
 export async function edit() {
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
@@ -76,7 +80,7 @@ export async function edit() {
 
     const eventId = this.params.id;
 
-    let event = await getEventById(eventId);
+    let event = await getById(eventId);
 
     const context = Object.assign(this.app.userData, { event });
 
@@ -108,7 +112,7 @@ export async function editPost() {
             image: this.params.imageURL,
         }
 
-        const result = await updateEvent(eventId, event);
+        const result = await updateIt(eventId, event);
 
         if (result.hasOwnProperty("errorData")) {
             const error = new Error();
@@ -125,7 +129,8 @@ export async function editPost() {
     }
 }
 
-export async function deleteEvent() {
+// ------------------------- DELETE -------------------------
+export async function deleteGet() {
     if (confirm("Are you sure you want to delete this event?") === false) {
         return this.redirect("#/home");
     }
@@ -133,7 +138,7 @@ export async function deleteEvent() {
     const eventId = this.params.id;
 
     try {
-        const result = await apiDelete(eventId);
+        const result = await deleteIt(eventId);
 
         if (result.hasOwnProperty("errorData")) {
             const error = new Error();
@@ -149,6 +154,7 @@ export async function deleteEvent() {
         showError(err.message);
     }
 }
+
 
 export async function joinEvent() {
     const eventId = this.params.id;

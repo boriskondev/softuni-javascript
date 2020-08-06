@@ -1,7 +1,9 @@
 import { beginRequest, endRequest } from "./notifications.js";
 
 function host(endpoint) {
-    return `https://api.backendless.com/D4197671-F8EB-2581-FF17-3244736FD100/981D4390-9981-4062-BA1B-D147383261C9/${endpoint}`;
+    const appId = "D4197671-F8EB-2581-FF17-3244736FD100"
+    const restApiKey = "981D4390-9981-4062-BA1B-D147383261C9"
+    return `https://api.backendless.com/${appId}/${restApiKey}/${endpoint}`;
 }
 
 const endpoints = {
@@ -11,6 +13,7 @@ const endpoints = {
     EVENTS: "data/events"
 };
 
+// ------------------------- REGISTER -------------------------
 export async function register(username, password) {
     beginRequest();
 
@@ -30,6 +33,7 @@ export async function register(username, password) {
     return result;
 }
 
+// ------------------------- LOGIN -------------------------
 export async function login(username, password) {
     beginRequest();
 
@@ -53,6 +57,7 @@ export async function login(username, password) {
     return result;
 }
 
+// ------------------------- LOGOUT -------------------------
 export async function logout() {
     beginRequest();
 
@@ -73,9 +78,8 @@ export async function logout() {
     return result;
 }
 
-// get all events
-
-export async function getEvents() {
+// ------------------------- GET ALL -------------------------
+export async function getAll() {
     beginRequest();
 
     const token = localStorage.getItem("userToken");
@@ -92,8 +96,8 @@ export async function getEvents() {
     return result;
 }
 
-// create event
-export async function createEvent(event) {
+// ------------------------- CREATE NEW -------------------------
+export async function createNew(event) {
     beginRequest();
 
     const token = localStorage.getItem("userToken");
@@ -112,8 +116,8 @@ export async function createEvent(event) {
     return result;
 }
 
-// get event by ID
-export async function getEventById(id) {
+// ------------------------- GET BY ID -------------------------
+export async function getById(id) {
     beginRequest();
 
     const token = localStorage.getItem("userToken");
@@ -130,8 +134,8 @@ export async function getEventById(id) {
     return result;
 }
 
-// Update event
-export async function updateEvent(id, updatedProps) {
+// ------------------------- UPDATE -------------------------
+export async function updateIt(id, updatedProps) {
     beginRequest();
 
     const token = localStorage.getItem("userToken");
@@ -150,8 +154,8 @@ export async function updateEvent(id, updatedProps) {
     return result;
 }
 
-// Delete event
-export async function deleteEvent(id) {
+// ------------------------- Delete -------------------------
+export async function deleteIt(id) {
     beginRequest();
 
     const token = localStorage.getItem("userToken");
@@ -169,17 +173,7 @@ export async function deleteEvent(id) {
     return result;
 }
 
-// Join event
-export async function joinEvent(event) {
-    const eventId = event.objectId;
-    event.interestedIn++;
-
-    const result = await updateEvent(eventId, { interestedIn: event.interestedIn })
-    console.log(result)
-    return result;
-}
-
-// Get events by user ID
+// ------------------------- GET ALL BY USER ID -------------------------
 export async function getEventsByCreator() {
     beginRequest();
 
@@ -195,5 +189,16 @@ export async function getEventsByCreator() {
 
     endRequest();
 
+    return result;
+}
+
+
+// ------------------------- INCREASE SOMETHING IN OBJECT -------------------------
+export async function joinEvent(event) {
+    const eventId = event.objectId;
+    event.interestedIn++;
+
+    const result = await updateEvent(eventId, { interestedIn: event.interestedIn })
+    console.log(result)
     return result;
 }

@@ -1,4 +1,4 @@
-import { getEvents } from "../data.js";
+import { getAll } from "../data.js";
 
 export async function home() {
     this.partials = {
@@ -9,7 +9,7 @@ export async function home() {
     const token = localStorage.getItem("userToken");
 
     if (token) {
-        const events = await getEvents();
+        const events = await getAll();
 
         events.sort((a, b) => {
             return b.interestedIn - a.interestedIn
