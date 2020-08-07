@@ -2,7 +2,7 @@ alert("The app works!")
 
 import { home } from "./controllers/home.js";
 import { profile, register, login, logout, registerPost, loginPost } from "./controllers/user.js";
-import { create, createPost, details, edit, editPost, deleteEvent, joinEvent } from "./controllers/event.js";
+import { create, createPost, details, edit, editPost, deleteGet, join } from "./controllers/event.js";
 
 window.addEventListener("load", () => {
     const app = Sammy("#container", function () {
@@ -35,9 +35,10 @@ window.addEventListener("load", () => {
         this.get("#/edit/:id", edit);
         this.post("#/edit/:id", context => { editPost.call(context); });
 
-        this.get("#/delete/:id", deleteEvent);
+        // It gives an error when a function is called just "delete"
+        this.get("#/delete/:id", deleteGet);
 
-        this.get("#/join/:id", joinEvent);
+        this.get("#/join/:id", join);
 
     });
 

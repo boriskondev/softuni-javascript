@@ -1,6 +1,6 @@
 import { showSuccess, showError } from "../notifications.js";
 import { createNew } from "../data.js";
-import { getById, updateIt, deleteIt, joinEvent as apiJoin } from "../data.js";
+import { getById, updateById, deleteIt, joinIt} from "../data.js";
 
 // ------------------------- CREATE -------------------------
 export async function create() {
@@ -12,7 +12,7 @@ export async function create() {
     this.partial("./templates/event/create.hbs", this.app.userData);
 }
 
-// ------------------------- CREATE POST -------------------------
+// ------------------------- CREATE (POST) -------------------------
 export async function createPost() {
     try {
         if (this.params.name.length < 6) {
@@ -53,24 +53,6 @@ export async function createPost() {
     }
 }
 
-// ------------------------- DETAILS TEMPLATE -------------------------
-export async function details() {
-    this.partials = {
-        header: await this.load("./templates/common/header.hbs"),
-        footer: await this.load("./templates/common/footer.hbs")
-    };
-
-    const eventId = this.params.id;
-
-    let event = await getById(eventId);
-
-    const isOrganizer = event.organizedBy === this.app.userData.username;
-
-    const context = Object.assign(this.app.userData, { event, isOrganizer });
-
-    this.partial("./templates/event/details.hbs", context);
-}
-
 // ------------------------- EDIT -------------------------
 export async function edit() {
     this.partials = {
@@ -88,6 +70,7 @@ export async function edit() {
 
 }
 
+// ------------------------- EDIT (POST) -------------------------
 export async function editPost() {
 
     const eventId = this.params.id;
@@ -112,7 +95,7 @@ export async function editPost() {
             image: this.params.imageURL,
         }
 
-        const result = await updateIt(eventId, event);
+        const result = await updateById(eventId, event);
 
         if (result.hasOwnProperty("errorData")) {
             const error = new Error();
@@ -155,15 +138,32 @@ export async function deleteGet() {
     }
 }
 
+// ------------------------- DETAILS -------------------------
+export async function details() {
+    this.partials = {
+        header: await this.load("./templates/common/header.hbs"),
+        footer: await this.load("./templates/common/footer.hbs")
+    };
 
-export async function joinEvent() {
     const eventId = this.params.id;
 
-    let event = await getEventById(eventId);
+    let event = await getById(eventId);
+
+    const isOrganizer = event.organizedBy === this.app.userData.username;
+
+    const context = Object.assign(this.app.userData, { event, isOrganizer });
+
+    this.partial("./templates/event/details.hbs", context);
+}
+
+// ------------------------- INCREASE SOMETHING IN OBJECT -------------------------
+export async function join() {
+    const eventId = this.params.id;
+
+    let event = await getById(eventId);
 
     try {
-        const result = await apiJoin(event);
-        console.log(result)
+        const result = await joinIt(event);
 
         if (result.hasOwnProperty("errorData")) {
             const error = new Error();

@@ -135,7 +135,7 @@ export async function getById(id) {
 }
 
 // ------------------------- UPDATE -------------------------
-export async function updateIt(id, updatedProps) {
+export async function updateById(id, updatedProps) {
     beginRequest();
 
     const token = localStorage.getItem("userToken");
@@ -154,7 +154,7 @@ export async function updateIt(id, updatedProps) {
     return result;
 }
 
-// ------------------------- Delete -------------------------
+// ------------------------- DELETE -------------------------
 export async function deleteIt(id) {
     beginRequest();
 
@@ -192,13 +192,11 @@ export async function getEventsByCreator() {
     return result;
 }
 
-
 // ------------------------- INCREASE SOMETHING IN OBJECT -------------------------
-export async function joinEvent(event) {
+export async function joinIt(event) {
     const eventId = event.objectId;
     event.interestedIn++;
 
-    const result = await updateEvent(eventId, { interestedIn: event.interestedIn })
-    console.log(result)
+    const result = await updateById(eventId, { interestedIn: event.interestedIn })
     return result;
 }
