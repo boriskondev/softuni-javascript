@@ -39,7 +39,6 @@ window.addEventListener("load", () => {
         this.get("#/delete/:id", deleteGet);
 
         this.get("#/join/:id", join);
-
     });
 
     app.run();

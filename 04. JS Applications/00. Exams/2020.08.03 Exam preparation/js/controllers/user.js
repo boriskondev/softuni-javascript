@@ -12,28 +12,6 @@ export async function register() {
     this.partial("./templates/user/register.hbs", this.app.userData);
 }
 
-export async function login() {
-    this.partials = {
-        header: await this.load("./templates/common/header.hbs"),
-        footer: await this.load("./templates/common/footer.hbs")
-    };
-
-    this.partial("./templates/user/login.hbs", this.app.userData);
-}
-
-export async function profile() {
-    this.partials = {
-        header: await this.load("./templates/common/header.hbs"),
-        footer: await this.load("./templates/common/footer.hbs")
-    };
-
-    const events = await getEventsByCreator();
-
-    const context = Object.assign(this.app.userData, { events });
-
-    this.partial("./templates/user/profile.hbs", context);
-}
-
 export async function registerPost() {
     try {
         if (this.params.username.length < 3) {
@@ -66,6 +44,28 @@ export async function registerPost() {
     } catch (err) {
         showError(err.message);
     }
+}
+
+export async function login() {
+    this.partials = {
+        header: await this.load("./templates/common/header.hbs"),
+        footer: await this.load("./templates/common/footer.hbs")
+    };
+
+    this.partial("./templates/user/login.hbs", this.app.userData);
+}
+
+export async function profile() {
+    this.partials = {
+        header: await this.load("./templates/common/header.hbs"),
+        footer: await this.load("./templates/common/footer.hbs")
+    };
+
+    const events = await getEventsByCreator();
+
+    const context = Object.assign(this.app.userData, { events });
+
+    this.partial("./templates/user/profile.hbs", context);
 }
 
 export async function loginPost() {
