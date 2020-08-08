@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0877b606-8fe2-46dc-b561-24975e52c080" name="Default Changelist" comment="06.08.2020">
+    <list default="true" id="0877b606-8fe2-46dc-b561-24975e52c080" name="Default Changelist" comment="07.08.2020">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/UniEnt_Description.docx" beforeDir="false" afterPath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/UniEnt_Description.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/README-IMPORTANT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.03 Exam preparation/~$iEnt_Description.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.04 Exam preparation/README - IMPORTANT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.04 Exam preparation/images/homePage-background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.04 Exam preparation/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.04 Exam preparation/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.04 Exam preparation/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04. JS Applications/00. Exams/2020.08.04 Exam preparation/styles/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.2" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.12.54" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/04. JS Applications/05. Templating/02. HTTP Status Cats/images" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/mocha" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -93,6 +104,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -162,35 +174,12 @@
       <workItem from="1596710836518" duration="174000" />
       <workItem from="1596717276354" duration="11349000" />
       <workItem from="1596728652258" duration="692000" />
-      <workItem from="1596738260880" duration="2343000" />
-    </task>
-    <task id="LOCAL-00032" summary="08.07.2020">
-      <created>1594158273946</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1594158273946</updated>
-    </task>
-    <task id="LOCAL-00033" summary="08.07.2020">
-      <created>1594158345073</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1594158345073</updated>
-    </task>
-    <task id="LOCAL-00034" summary="08.07.2020">
-      <created>1594189316445</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1594189316446</updated>
-    </task>
-    <task id="LOCAL-00035" summary="08.07.2020">
-      <created>1594205856423</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1594205856423</updated>
+      <workItem from="1596738260880" duration="3058000" />
+      <workItem from="1596793019407" duration="3937000" />
+      <workItem from="1596830747436" duration="1398000" />
+      <workItem from="1596832200054" duration="63000" />
+      <workItem from="1596832331807" duration="396000" />
+      <workItem from="1596868858152" duration="6477000" />
     </task>
     <task id="LOCAL-00036" summary="08.07.2020">
       <created>1594227963319</created>
@@ -507,15 +496,41 @@
       <option name="project" value="LOCAL" />
       <updated>1596740157692</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="06.08.2020">
+      <created>1596740644966</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1596740644966</updated>
+    </task>
+    <task id="LOCAL-00082" summary="07.08.2020">
+      <created>1596797391548</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1596797391548</updated>
+    </task>
+    <task id="LOCAL-00083" summary="08.08.2020">
+      <created>1596874247252</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1596874247253</updated>
+    </task>
+    <task id="LOCAL-00084" summary="08.08.2020">
+      <created>1596874887751</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1596874887751</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="27.06.2020" />
-    <MESSAGE value="30.06.2020" />
     <MESSAGE value="02.07.2020" />
     <MESSAGE value="06.07.2020" />
     <MESSAGE value="05.07.2020" />
@@ -539,7 +554,9 @@
     <MESSAGE value="04.08.2020" />
     <MESSAGE value="05.08.2020" />
     <MESSAGE value="06.08.2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="06.08.2020" />
+    <MESSAGE value="07.08.2020" />
+    <MESSAGE value="08.08.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="08.08.2020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="421" y="28" key="#04._JS_Applications\01._Unit_Testing_and_Modules\Homeworks\03\tests\01._Even_Or_Odd-tests.js" timestamp="1594226448382">
@@ -570,14 +587,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1595852873406" />
-    <state x="162" y="0" key="CommitChangelistDialog2" timestamp="1596740156405">
+    <state x="162" y="0" key="CommitChangelistDialog2" timestamp="1596874886985">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="162" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1596740156405" />
-    <state x="143" y="50" key="DiffContextDialog" timestamp="1595751250658">
+    <state x="162" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1596874886985" />
+    <state x="143" y="50" key="DiffContextDialog" timestamp="1596874179461">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="143" y="50" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1595751250658" />
+    <state x="143" y="50" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1596874179461" />
     <state x="368" y="140" key="FileChooserDialogImpl" timestamp="1594226443298">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -650,14 +667,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="118" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1595853203803" />
-    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2" timestamp="1596728607992">
+    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2" timestamp="1596874896139">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1596728607992" />
+    <state x="208" y="51" width="817" height="534" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1596874896139" />
     <state x="269" y="74" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1595751363593">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="269" y="74" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1280.680@0.0.1280.680" timestamp="1595751363593" />
+    <state x="458" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596874196390">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1596874196390" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1595691684431">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
