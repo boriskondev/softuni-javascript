@@ -30,7 +30,7 @@ window.addEventListener("load", () => {
         this.get("#/create", create);
         this.post("#/create", context => { createPost.call(context); });
 
-        this.get("#/movieDetails.hbs/:id", details);
+        this.get("#/detailz.hbs/:id", details);
 
         this.get("#/edit/:id", edit);
         this.post("#/edit/:id", context => { editPost.call(context); });

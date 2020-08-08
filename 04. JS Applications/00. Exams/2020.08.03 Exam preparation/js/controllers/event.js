@@ -153,7 +153,7 @@ export async function details() {
 
     const context = Object.assign(this.app.userData, { event, isOrganizer });
 
-    this.partial("./templates/event/movieDetails.hbs.hbs", context);
+    this.partial("./templates/event/detailz.hbs.hbs", context);
 }
 
 // ------------------------- INCREASE SOMETHING IN OBJECT -------------------------

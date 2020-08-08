@@ -1,4 +1,4 @@
-import { getAll } from "../data.js";
+import { getAll } from "../data/content.js";
 
 export async function home() {
     this.partials = {
@@ -6,15 +6,11 @@ export async function home() {
         footer: await this.load("./templates/common/footer.hbs")
     };
 
-    const token = localStorage.getItem("userToken");
+    let movies = await getAll();
 
-    const movies = await getAll();
-
-    if (token) {
-        const movies = await getAll();
-        this.app.userData.movies = movies;
-        this.partial("./templates/home.hbs", this.app.userData);
-    } else {
-        this.partial("./templates/home.hbs", this.app.userData);
+    if (movies.length > 0) {
+        Object.assign(this.app.userData, { movies })
     }
+
+    this.partial("./templates/home.hbs", this.app.userData);
 }

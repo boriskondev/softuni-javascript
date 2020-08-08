@@ -1,7 +1,7 @@
 // import { showSuccess, showError } from "../notifications.js";
-import { register as apiRegister } from "../data.js";
-import { login as apiLogin } from "../data.js";
-import { logout as apiLogout } from "../data.js";
+import { register as apiRegister } from "../data/user.js";
+import { login as apiLogin } from "../data/user.js";
+import { logout as apiLogout } from "../data/user.js";
 
 export async function register() {
     this.partials = {
@@ -13,7 +13,6 @@ export async function register() {
 }
 
 export async function registerPost() {
-    console.log(this.params)
     try {
         if (this.params.email === "") {
             throw new Error("Email field must be filled.");
@@ -37,9 +36,6 @@ export async function registerPost() {
 
         alert("Successful registration!");
         // showSuccess("User registration successful.");
-
-        localStorage.setItem("userEmail", result.email);
-        localStorage.setItem("userId", result.objectId);
 
         this.redirect("#/home");
 
@@ -68,7 +64,7 @@ export async function loginPost() {
             throw error;
         }
 
-        this.app.userData.email = result.email;
+        this.app.userData.userEmail = result.email;
         this.app.userData.userId = result.objectId;
 
         alert("Login successful.");
@@ -91,13 +87,13 @@ export async function logout() {
             throw error;
         }
 
-        this.app.userData.username = "";
+        this.app.userData.userEmail = "";
         this.app.userData.userId = "";
 
         alert("Successful logout.");
         // showSuccess("Logout successful.");
 
-        this.redirect("#/login");
+        this.redirect("#/home");
 
     } catch (err) {
         alert(err.message);

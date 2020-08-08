@@ -19,5 +19,5 @@ export default async function () {
         data.isOnTeam = true;
     }
 
-    this.partial('./templates/catalog/movieDetails.hbs.hbs', data);
+    this.partial('./templates/catalog/detailz.hbs.hbs', data);
 }
