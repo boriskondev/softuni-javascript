@@ -40,7 +40,7 @@ export async function create() {
         footer: await this.load('./templates/common/footer.hbs'),
     };
 
-    this.partial('./templates/movie/create.hbs', this.app.userData);
+    this.partial('./templates/movie/add.hbs', this.app.userData);
 }
 
 export async function createPost() {
@@ -66,7 +66,7 @@ export async function createPost() {
         }
 
         showInfo('Movie created');
-        this.redirect('#/details/' + result.objectId);
+        this.redirect('#/movieDetails.hbs/' + result.objectId);
     } catch (err) {
         console.error(err);
         showError(err.message);
@@ -85,9 +85,9 @@ export async function details() {
         movie = await getMovieById(movieId);
     }
 
-    const context = Object.assign({ movie, origin: encodeURIComponent('#/details/' + movieId) }, this.app.userData);
+    const context = Object.assign({ movie, origin: encodeURIComponent('#/movieDetails.hbs/' + movieId) }, this.app.userData);
 
-    this.partial('./templates/movie/details.hbs', context);
+    this.partial('./templates/movie/movieDetails.hbs.hbs', context);
 }
 
 export async function edit() {
@@ -138,7 +138,7 @@ export async function editPost() {
         }
 
         showInfo('Movie edited');
-        this.redirect('#/details/' + result.objectId);
+        this.redirect('#/movieDetails.hbs/' + result.objectId);
     } catch (err) {
         console.error(err);
         showError(err.message);

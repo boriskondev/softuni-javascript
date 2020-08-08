@@ -19,5 +19,5 @@ export default async function () {
     };
     Object.assign(data, this.app.userData);
 
-    this.partial("./templates/catalog/details.hbs", data);
+    this.partial("./templates/catalog/movieDetails.hbs.hbs", data);
 };

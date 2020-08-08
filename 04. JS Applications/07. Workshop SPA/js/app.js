@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
         this.get('#/catalog', catalog);
         this.get('#/my_movies', myMovies);
 
-        this.get('#/details/:id', details);
+        this.get('#/movieDetails.hbs/:id', details);
 
         this.get('#/create', create);
 

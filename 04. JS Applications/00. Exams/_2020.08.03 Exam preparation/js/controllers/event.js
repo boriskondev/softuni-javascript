@@ -9,7 +9,7 @@ export async function create() {
         footer: await this.load("./templates/common/footer.hbs")
     };
 
-    this.partial("./templates/event/create.hbs", this.app.userData);
+    this.partial("./templates/event/add.hbs", this.app.userData);
 }
 
 // ------------------------- CREATE (POST) -------------------------
@@ -153,7 +153,7 @@ export async function details() {
 
     const context = Object.assign(this.app.userData, { event, isOrganizer });
 
-    this.partial("./templates/event/details.hbs", context);
+    this.partial("./templates/event/movieDetails.hbs.hbs", context);
 }
 
 // ------------------------- INCREASE SOMETHING IN OBJECT -------------------------
