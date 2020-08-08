@@ -39,6 +39,10 @@ window.addEventListener("load", () => {
         this.get("#/delete/:id", deleteGet);
 
         this.get("#/join/:id", join);
+
+        // this.get("", function () {
+        //     this.swap("<h1>Error 404: Page not found.</h1>")
+        // })
     });
 
     app.run();
