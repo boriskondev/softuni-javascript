@@ -2,7 +2,7 @@ alert("The app works!")
 
 import { home } from "./controllers/home.js";
 import { register, registerPost, login, loginPost, logout } from "./controllers/user.js";
-import { add, addPost } from "./controllers/movie.js";
+import { add, addPost, movieDetails, edit, editPost, deleteGet, like } from "./controllers/movie.js";
 
 window.addEventListener("load", () => {
     const app = Sammy("#container", function () {
@@ -13,6 +13,7 @@ window.addEventListener("load", () => {
             userId: localStorage.getItem("userId") || ""
         };
 
+        // OK
         this.get("/", home);
         this.get("index.html", home);
         this.get("#/home", home);
@@ -28,18 +29,20 @@ window.addEventListener("load", () => {
         // OK
         this.get("#/logout", logout);
 
+        // OK
         this.get("#/add", add);
         this.post("#/add", context => { addPost.call(context); });
 
-        // this.get("#/details/:id", movieDetails);
-        //
-        // this.get("#/edit/:id", edit);
-        // this.post("#/edit/:id", context => { editPost.call(context); });
+        // OK
+        this.get("#/details/:id", movieDetails);
 
-        // It gives an error when a function is called just "delete"
-        // this.get("#/delete/:id", deleteGet);
-        //
-        // this.get("#/join/:id", join);
+        // OK
+        this.get("#/edit/:id", edit);
+        this.post("#/edit/:id", context => { editPost.call(context); });
+
+        this.get("#/delete/:id", deleteGet);
+
+        this.get("#/like/:id", like);
 
         // this.get("", function () {
         //     this.swap("<h1>Error 404: Page not found.</h1>")

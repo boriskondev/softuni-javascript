@@ -13,8 +13,11 @@
                 <a class="btn btn-danger" href="#/delete/{{movie.objectId}}">Delete</a>
                 <a class="btn btn-warning" href="#/edit/{{movie.objectId}}">Edit</a>
             {{else}}
-                <a class="btn btn-primary" href="#/like">Like</a>
-                <span class="enrolled-span">Liked 1</span>
+                {{#if liked}}
+                    <a class="btn btn-primary" href="#/like/{{movie.objectId}}">Like</a>
+                {{else}}
+                    <span class="enrolled-span">Liked {{movie.peopleLiked}}</span>
+                {{/if}}
             {{/if}}
         </div>
     </div>
