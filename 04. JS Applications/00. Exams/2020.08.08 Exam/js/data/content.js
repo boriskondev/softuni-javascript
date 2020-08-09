@@ -98,9 +98,10 @@ export async function deleteIt(id) {
 // ------------------------- Like -------------------------
 export async function likeIt(movie) {
     const movieId = movie.objectId;
-    movie.peopleLiked.append(this.app.userData.userEmail);
+    movie.peopleLiked.emails.push(this.app.userData.userEmail);
 
-    const result = await updateById(movieId, { peopleLiked: movie.peopleLiked })
+    const result = await updateById(movieId, { peopleLiked: movie.peopleLiked.emails })
+    console.log(result)
     return result;
 }
 

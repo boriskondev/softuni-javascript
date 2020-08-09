@@ -9,11 +9,11 @@
         <div class="col-md-4 text-center">
             <h3 class="my-3 ">Movie Description</h3>
             <p>{{movie.description}}</p>
-            {{#if isCreator}}
+            {{#if movie.isCreator}}
                 <a class="btn btn-danger" href="#/delete/{{movie.objectId}}">Delete</a>
                 <a class="btn btn-warning" href="#/edit/{{movie.objectId}}">Edit</a>
             {{else}}
-                {{#if alreadyLiked}}
+                {{#if movie.alreadyLiked}}
                     <span class="enrolled-span">Liked {{movie.peopleLiked.length}}</span>
                 {{else}}
                     <a class="btn btn-primary" href="#/like/{{movie.objectId}}">Like</a>

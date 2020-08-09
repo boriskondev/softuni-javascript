@@ -63,16 +63,21 @@ export async function movieDetails() {
     const context = Object.assign(this.app.userData, { movie })
 
     if (movie.creator === this.app.userData.userEmail) {
-        context.isCreator = true;
+        context.movie.isCreator = true;
     } else {
+        context.movie.isCreator = false;
         if (movie.peopleLiked !== null) {
             let result = movie.peopleLiked.filter(email => email === this.app.userData.userEmail);
-
             if (result.length > 0) {
                 context.alreadyLiked = true;
             }
+        } else {
+            context.movie.alreadyLiked = false;
+            movie.peopleLiked = { "emails": [] }
         }
     }
+
+    console.log(context)
 
     this.partial("./templates/movie/detailz.hbs", context);
 }
@@ -165,6 +170,8 @@ export async function like() {
 
     let movie = await getById(movieId);
 
+    console.log(movie)
+
     try {
         const result = await likeIt(movie);
 
@@ -177,7 +184,7 @@ export async function like() {
         alert("You liked the movie successfully.");
         // showSuccess("You join the event successfully.");
 
-        this.redirect(`#/details/${eventId}`);
+        this.redirect(`#/details/${movieId}`);
 
     } catch (err) {
         alert(err.message);
