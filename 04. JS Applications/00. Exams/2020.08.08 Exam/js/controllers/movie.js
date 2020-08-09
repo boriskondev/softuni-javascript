@@ -55,22 +55,26 @@ export async function movieDetails() {
         header: await this.load("./templates/common/header.hbs"),
         footer: await this.load("./templates/common/footer.hbs")
     };
-    console.log(this.params)
 
     const movieId = this.params.id;
 
     let movie = await getById(movieId);
 
-    const isCreator = movie.creator === this.app.userData.userEmail;
+    const context = Object.assign(this.app.userData, { movie })
 
-    const context = Object.assign(this.app.userData, { movie, isCreator });
-    console.log(context)
+    if (movie.creator === this.app.userData.userEmail) {
+        context.isCreator = true;
+    } else {
+        if (movie.peopleLiked !== null) {
+            let result = movie.peopleLiked.filter(email => email === this.app.userData.userEmail);
+
+            if (result.length > 0) {
+                context.alreadyLiked = true;
+            }
+        }
+    }
 
     this.partial("./templates/movie/detailz.hbs", context);
-
-    // if (movie.peopleLiked.find(email => email === this.params.email)) {
-    //     Object.assign(this.app.userData, { liked: true })
-    // } else {
 }
 
 // ------------------------- EDIT -------------------------

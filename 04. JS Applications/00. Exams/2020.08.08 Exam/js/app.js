@@ -24,14 +24,14 @@ window.addEventListener("load", () => {
 
         // OK
         this.get("#/login", login);
-        this.post("#/login", context => { loginPost.call(context); });
+        this.post("#/login", context => { loginPost.call(context); } );
 
         // OK
         this.get("#/logout", logout);
 
         // OK
         this.get("#/add", add);
-        this.post("#/add", context => { addPost.call(context); });
+        this.post("#/add", context => { addPost.call(context); } );
 
         // OK
         this.get("#/details/:id", movieDetails);
@@ -43,10 +43,6 @@ window.addEventListener("load", () => {
         this.get("#/delete/:id", deleteGet);
 
         this.get("#/like/:id", like);
-
-        // this.get("", function () {
-        //     this.swap("<h1>Error 404: Page not found.</h1>")
-        // })
     });
 
     app.run();

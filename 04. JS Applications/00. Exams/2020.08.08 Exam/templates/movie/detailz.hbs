@@ -2,9 +2,9 @@
 
 <div class="container">
     <div class="row bg-light text-dark">
-    <h1>Movie title: {{movie.title}}</h1>
+    <h1>{{movie.title}}</h1>
         <div class="col-md-8">
-            <img class="{{movie.image}}" alt="Movie">
+            <img class="img-thumbnail" src="{{movie.image}}" alt="Movie">
         </div>
         <div class="col-md-4 text-center">
             <h3 class="my-3 ">Movie Description</h3>
@@ -13,10 +13,11 @@
                 <a class="btn btn-danger" href="#/delete/{{movie.objectId}}">Delete</a>
                 <a class="btn btn-warning" href="#/edit/{{movie.objectId}}">Edit</a>
             {{else}}
-                {{#if liked}}
-                    <a class="btn btn-primary" href="#/like/{{movie.objectId}}">Like</a>
+                {{#if alreadyLiked}}
+                    <span class="enrolled-span">Liked {{movie.peopleLiked.length}}</span>
                 {{else}}
-                    <span class="enrolled-span">Liked {{movie.peopleLiked}}</span>
+                    <a class="btn btn-primary" href="#/like/{{movie.objectId}}">Like</a>
+
                 {{/if}}
             {{/if}}
         </div>
