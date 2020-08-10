@@ -96,11 +96,10 @@ export async function deleteIt(id) {
 }
 
 // ------------------------- Like -------------------------
-export async function likeIt(movie) {
-    const movieId = movie.objectId;
-    movie.peopleLiked.emails.push(this.app.userData.userEmail);
+export async function likeIt(movie, email) {
+    movie.peopleLiked.push(email);
 
-    const result = await updateById(movieId, { peopleLiked: movie.peopleLiked.emails })
+    const result = await updateById(movie.objectId, { peopleLiked: movie.peopleLiked })
     console.log(result)
     return result;
 }

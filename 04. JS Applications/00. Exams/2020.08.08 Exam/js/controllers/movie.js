@@ -4,6 +4,7 @@ import { getById, updateById, deleteIt, likeIt } from "../data/content.js";
 
 // ------------------------- ADD -------------------------
 export async function add() {
+    console.log(this.params)
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
         footer: await this.load("./templates/common/footer.hbs")
@@ -25,7 +26,7 @@ export async function addPost() {
         const movie = {
             title: this.params.title,
             description: this.params.description,
-            imageUrl: this.params.imageURL,
+            image: this.params.imageURL,
             creator: this.app.userData.userEmail,
             peopleLiked: []
         }
@@ -66,14 +67,11 @@ export async function movieDetails() {
         context.movie.isCreator = true;
     } else {
         context.movie.isCreator = false;
-        if (movie.peopleLiked !== null) {
-            let result = movie.peopleLiked.filter(email => email === this.app.userData.userEmail);
-            if (result.length > 0) {
-                context.alreadyLiked = true;
-            }
+        let result = movie.peopleLiked.filter(email => email === this.app.userData.userEmail);
+        if (result.length > 0) {
+            context.movie.alreadyLiked = true;
         } else {
             context.movie.alreadyLiked = false;
-            movie.peopleLiked = { "emails": [] }
         }
     }
 
@@ -114,7 +112,7 @@ export async function editPost() {
         const movie = {
             title: this.params.title,
             description: this.params.description,
-            imageUrl: this.params.imageURL
+            image: this.params.imageURL
         }
 
         const result = await updateById(movieId, movie);
@@ -125,7 +123,7 @@ export async function editPost() {
             throw error;
         }
 
-        alert("Event edited successfully.");
+        alert("Movie edited successfully.");
         // showSuccess("Event edited successfully.");
 
         this.redirect("#/home");
@@ -170,10 +168,10 @@ export async function like() {
 
     let movie = await getById(movieId);
 
-    console.log(movie)
+    let email = this.app.userData.userEmail;
 
     try {
-        const result = await likeIt(movie);
+        const result = await likeIt(movie, email);
 
         if (result.hasOwnProperty("errorData")) {
             const error = new Error();
