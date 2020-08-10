@@ -69,7 +69,6 @@ export async function loginPost() {
 
         alert("Login successful.");
         // showSuccess("Login successful.");
-        console.log(this.app.userData)
 
         this.redirect("#/home")
 

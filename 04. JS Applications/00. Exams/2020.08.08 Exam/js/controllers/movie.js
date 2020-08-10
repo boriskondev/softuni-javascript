@@ -4,7 +4,6 @@ import { getById, updateById, deleteIt, likeIt } from "../data/content.js";
 
 // ------------------------- ADD -------------------------
 export async function add() {
-    console.log(this.params)
     this.partials = {
         header: await this.load("./templates/common/header.hbs"),
         footer: await this.load("./templates/common/footer.hbs")
@@ -15,7 +14,6 @@ export async function add() {
 
 // ------------------------- ADD (POST) -------------------------
 export async function addPost() {
-    console.log(this.params)
     try {
         if (this.params.title.length === 0 ||
             this.params.description.length === 0 ||
@@ -26,9 +24,9 @@ export async function addPost() {
         const movie = {
             title: this.params.title,
             description: this.params.description,
-            image: this.params.imageURL,
+            image: this.params.imageUrl,
             creator: this.app.userData.userEmail,
-            peopleLiked: []
+            peopleLiked: { likes: [] }
         }
 
         const result = await addNew(movie);
@@ -112,7 +110,7 @@ export async function editPost() {
         const movie = {
             title: this.params.title,
             description: this.params.description,
-            image: this.params.imageURL
+            image: this.params.imageUrl
         }
 
         const result = await updateById(movieId, movie);
