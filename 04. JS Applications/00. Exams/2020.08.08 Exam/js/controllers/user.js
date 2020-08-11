@@ -1,4 +1,4 @@
-// import { showSuccess, showError } from "../notifications.js";
+import { showSuccess, showError } from "../notifications.js";
 import { register as apiRegister } from "../data/user.js";
 import { login as apiLogin } from "../data/user.js";
 import { logout as apiLogout } from "../data/user.js";
@@ -34,13 +34,13 @@ export async function registerPost() {
             throw error;
         }
 
-        alert("Successful registration!");
+        showSuccess("Successful registration!");
         // showSuccess("User registration successful.");
 
         this.redirect("#/home");
 
     } catch (err) {
-        alert(err.message);
+        showError(err.message);
         // showError(err.message);
     }
 }
@@ -67,14 +67,12 @@ export async function loginPost() {
         this.app.userData.userEmail = result.email;
         this.app.userData.userId = result.objectId;
 
-        alert("Login successful.");
-        // showSuccess("Login successful.");
+        showSuccess("Login successful.");
 
         this.redirect("#/home")
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -90,27 +88,11 @@ export async function logout() {
         this.app.userData.userEmail = "";
         this.app.userData.userId = "";
 
-        alert("Successful logout.");
-        // showSuccess("Logout successful.");
+        showSuccess("Successful logout.");
 
         this.redirect("#/home");
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
-
-// export async function profile() {
-//     this.partials = {
-//         header: await this.load("./templates/common/header.hbs"),
-//         footer: await this.load("./templates/common/footer.hbs")
-//     };
-//
-//     const events = await getEventsByCreator();
-//
-//     const context = Object.assign(this.app.userData, { events });
-//
-//     this.partial("./templates/user/profile.hbs", context);
-// }
-//

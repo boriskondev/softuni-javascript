@@ -1,4 +1,4 @@
-// import { showSuccess, showError } from "../notifications.js";
+import { showSuccess, showError } from "../notifications.js";
 import { addNew } from "../data/content.js";
 import { getById, updateById, deleteIt, likeIt } from "../data/content.js";
 
@@ -37,14 +37,12 @@ export async function addPost() {
             throw error;
         }
 
-        alert("Created successfully!");
-        // showSuccess("Event created successfully.");
+        showSuccess("Created successfully!");
 
         this.redirect("#/home");
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -73,8 +71,6 @@ export async function movieDetails() {
         }
     }
 
-    console.log(context)
-
     this.partial("./templates/movie/detailz.hbs", context);
 }
 
@@ -86,9 +82,7 @@ export async function edit() {
     };
 
     const movieId = this.params.id;
-
     let movie = await getById(movieId);
-
     const context = Object.assign(this.app.userData, { movie });
 
     this.partial("./templates/movie/edit.hbs", context);
@@ -121,14 +115,12 @@ export async function editPost() {
             throw error;
         }
 
-        alert("Movie edited successfully.");
-        // showSuccess("Event edited successfully.");
+        showSuccess("Movie edited successfully.");
 
         this.redirect("#/home");
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -149,14 +141,12 @@ export async function deleteGet() {
             throw error;
         }
 
-        alert("Deleted successfully");
-        // showSuccess("Event closed successfully.");
+        showSuccess("Deleted successfully");
 
         this.redirect("#/home");
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
 
@@ -177,13 +167,11 @@ export async function like() {
             throw error;
         }
 
-        alert("You liked the movie successfully.");
-        // showSuccess("You join the event successfully.");
+        showSuccess("You liked the movie successfully.");
 
         this.redirect(`#/details/${movieId}`);
 
     } catch (err) {
-        alert(err.message);
-        // showError(err.message);
+        showError(err.message);
     }
 }
