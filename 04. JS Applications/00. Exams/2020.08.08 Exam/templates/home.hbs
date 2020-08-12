@@ -11,9 +11,9 @@
     <h1 class="text-center">Movies</h1>
     <section>
         <a href="#/add" class="btn btn-warning ">Add Movie</a>
-        <form class="search float-right">
+        <form action="#/home" method="GET" class="search float-right">
             <label>Search: </label>
-            <input type="text">
+            <input type="text" name="search" value="{{search}}">
             <input type="submit" class="btn btn-info" value="Search">
         </form>
     </section>

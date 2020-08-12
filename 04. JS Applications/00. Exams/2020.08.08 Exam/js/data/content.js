@@ -1,17 +1,26 @@
 import { host, endpoints } from "./settings.js"
 
 // ------------------------- GET ALL -------------------------
-export async function getAll() {
+export async function getAll(search) {
     // beginRequest();
 
     const token = localStorage.getItem("userToken");
 
-    const result = (await fetch(host(endpoints.MOVIES), {
-        method: "GET",
-        headers: {
-            "user-token": token
-        }
-    })).json();
+    let result;
+
+    if (!search) {
+        result = (await fetch(host(endpoints.MOVIES), {
+            headers: {
+                "user-token": token
+            }
+        })).json();
+    } else {
+        result = (await fetch(host(endpoints.MOVIES + `?where=${escape(`title LIKE '%${search}%'`)}`), {
+            headers: {
+                "user-token": token
+            }
+        })).json();
+    }
 
     // endRequest();
 
