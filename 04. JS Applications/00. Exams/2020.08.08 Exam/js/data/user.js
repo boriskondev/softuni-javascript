@@ -1,5 +1,5 @@
 // import { beginRequest, endRequest } from "./notifications.js";
-import { host, endpoints } from "./settings.js"
+import { host, endpoints } from "../../settings.js"
 
 // ------------------------- REGISTER -------------------------
 export async function register(email, password) {

@@ -1,4 +1,4 @@
-import { host, endpoints } from "./settings.js"
+import { host, endpoints } from "../../settings.js"
 
 // ------------------------- GET ALL -------------------------
 export async function getAll(search) {

@@ -1,6 +1,6 @@
 export function host(endpoint) {
-    const appId = "02AB75F4-CD5C-A6C2-FF5D-84792839C500";
-    const restApiKey = "94015CE5-14C7-4B3F-9552-B7C7D5B2C459"
+    const appId = "C8CFFE68-DC8B-F904-FFBC-6C9990D8C800";
+    const restApiKey = "C9F744E5-D3DC-47B4-B69F-B58450812FFF";
     return `https://api.backendless.com/${appId}/${restApiKey}/${endpoint}`;
 }
 
@@ -8,5 +8,5 @@ export const endpoints = {
     REGISTER: "users/register",
     LOGIN: "users/login",
     LOGOUT: "users/logout",
-    RECIPES: "data/recipes"
+    MOVIES: "data/movies"
 };
