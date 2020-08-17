@@ -40,7 +40,7 @@ export async function create() {
         footer: await this.load('./templates/common/footer.hbs'),
     };
 
-    this.partial('./templates/movie/add.hbs', this.app.userData);
+    this.partial('./templates/movie/create.hbs', this.app.userData);
 }
 
 export async function createPost() {
@@ -87,7 +87,7 @@ export async function details() {
 
     const context = Object.assign({ movie, origin: encodeURIComponent('#/detailz.hbs/' + movieId) }, this.app.userData);
 
-    this.partial('./templates/movie/detailz.hbs.hbs', context);
+    this.partial('./templates/movie/detailz.hbs', context);
 }
 
 export async function edit() {
@@ -138,7 +138,7 @@ export async function editPost() {
         }
 
         showInfo('Movie edited');
-        this.redirect('#/detailz.hbs/' + result.objectId);
+        this.redirect('#/details/' + result.objectId);
     } catch (err) {
         console.error(err);
         showError(err.message);
@@ -164,7 +164,7 @@ export async function buyTicket() {
 
         showInfo(`Bought ticket for ${movie.title}`);
 
-        this.redirect(this.params.origin);
+        this.redirect('#/details/' + result.objectId);
     } catch (err) {
         console.error(err);
         showError(err.message);
