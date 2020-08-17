@@ -9,7 +9,7 @@ export async function add() {
         footer: await this.load("./templates/common/footer.hbs")
     };
 
-    this.partial("./templates/movie/create.hbs", this.app.userData);
+    this.partial("./templates/movie/add.hbs", this.app.userData);
 }
 
 // ------------------------- ADD (POST) -------------------------
@@ -63,6 +63,8 @@ export async function movieDetails() {
         context.movie.isCreator = true;
     } else {
         context.movie.isCreator = false;
+        console.log(movie)
+        console.log(this.app.userData)
         let result = movie.peopleLiked.filter(email => email === this.app.userData.userEmail);
         if (result.length > 0) {
             context.movie.alreadyLiked = true;
