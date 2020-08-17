@@ -9,7 +9,7 @@ export async function add() {
         footer: await this.load("./templates/common/footer.hbs")
     };
 
-    this.partial("./templates/movie/add.hbs", this.app.userData);
+    this.partial("./templates/movie/create.hbs", this.app.userData);
 }
 
 // ------------------------- ADD (POST) -------------------------
