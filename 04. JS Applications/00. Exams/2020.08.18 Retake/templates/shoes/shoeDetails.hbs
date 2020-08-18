@@ -1,0 +1,56 @@
+{{>header}}
+
+<div class="offer-details">
+    <h1>{{shoe.name}}</h1>
+    <div class="info">
+        <img src="{{shoe.image}}"
+             alt="">
+        <div class="description">{{shoe.description}}
+            <br>
+            <br>
+            <p ><strong>Buyers:</strong> {{shoe.peopleBought.length}}</p>
+            <br>
+            <p class="price">${{shoe.price}}</p>
+        </div>
+    </div>
+    <div class="actions">
+        {{#if shoe.isCreator}}
+            <a href="#/edit/{{shoe.objectId}}">Edit</a>
+            <a href="#/delete/{{shoe.objectId}}">Delete</a>
+        {{else}}
+            {{#if shoe.alreadyBought}}
+                <span>You bought it</span>
+            {{else}}
+                <a href="#/buy/{{shoe.objectId}}">Buy</a>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>
+
+{{>footer}}
+
+<!--<div class="container">-->
+<!--    <div class="row bg-light text-dark">-->
+<!--    <h1>{{movie.title}}</h1>-->
+<!--        <div class="col-md-8">-->
+<!--            <img class="img-thumbnail" src="{{movie.image}}" alt="Movie">-->
+<!--        </div>-->
+<!--        <div class="col-md-4 text-center">-->
+<!--            <h3 class="my-3 ">Movie Description</h3>-->
+<!--            <p>{{movie.description}}</p>-->
+<!--            {{#if movie.isCreator}}-->
+<!--                <a class="btn btn-danger" href="#/delete/{{movie.objectId}}">Delete</a>-->
+<!--                <a class="btn btn-warning" href="#/edit/{{movie.objectId}}">Edit</a>-->
+<!--            {{else}}-->
+<!--                {{#if movie.alreadyLiked}}-->
+<!--                    <span class="enrolled-span">Liked {{movie.peopleLiked.length}}</span>-->
+<!--                {{else}}-->
+<!--                    <a class="btn btn-primary" href="#/like/{{movie.objectId}}">Like</a>-->
+
+<!--                {{/if}}-->
+<!--            {{/if}}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
